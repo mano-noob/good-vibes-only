@@ -1,33 +1,47 @@
+import copy
 import json
-import os
+
+from runtime_paths import REVIEW_HISTORY_FILE
 
 
 class ReviewHistory:
 
-    FILE = "review_history.json"
+    FILE = REVIEW_HISTORY_FILE
 
     @staticmethod
     def load():
 
-        if not os.path.exists(
-            ReviewHistory.FILE
-        ):
+        if not ReviewHistory.FILE.exists():
 
             return []
 
-        with open(
-            ReviewHistory.FILE,
-            "r"
-        ) as f:
+        try:
+            with ReviewHistory.FILE.open(
+                "r",
+                encoding="utf-8"
+            ) as f:
 
-            return json.load(f)
+                data = json.load(f)
+
+            if data is None:
+                return []
+
+            return data
+
+        except (json.JSONDecodeError, TypeError, ValueError):
+            return []
 
     @staticmethod
     def save(history):
 
-        with open(
-            ReviewHistory.FILE,
-            "w"
+        ReviewHistory.FILE.parent.mkdir(
+            parents=True,
+            exist_ok=True
+        )
+
+        with ReviewHistory.FILE.open(
+            "w",
+            encoding="utf-8"
         ) as f:
 
             json.dump(
@@ -43,6 +57,8 @@ class ReviewHistory:
             ReviewHistory.load()
         )
 
-        history.append(review)
+        history.append(
+            copy.deepcopy(review)
+        )
 
         ReviewHistory.save(history)

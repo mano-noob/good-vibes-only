@@ -18,6 +18,37 @@ nifty_df["EMA200"] = (
 class BacktestService:
 
     @staticmethod
+    def run(symbol: str, stop_atr: int = 2, target_atr: int = 4, trail_atr=2.5, max_hold_days=40):
+
+        return BacktestService.run_backtest(
+            symbol=symbol,
+            stop_atr=stop_atr,
+            target_atr=target_atr,
+            trail_atr=trail_atr,
+            max_hold_days=max_hold_days,
+        )
+
+    @staticmethod
+    def run_portfolio(symbols, stop_atr: int = 2, target_atr: int = 4, trail_atr=2.5, max_hold_days=40):
+
+        results = []
+        for symbol in symbols:
+            results.append(
+                BacktestService.run(
+                    symbol=symbol,
+                    stop_atr=stop_atr,
+                    target_atr=target_atr,
+                    trail_atr=trail_atr,
+                    max_hold_days=max_hold_days,
+                )
+            )
+
+        return {
+            "results": results,
+            "symbols": list(symbols),
+        }
+
+    @staticmethod
     def run_backtest(
         symbol: str,
         stop_atr: int = 2,

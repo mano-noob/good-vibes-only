@@ -1,16 +1,17 @@
+from app.core.config_service import ConfigService
 from app.core.watchlist import NIFTY_100
 from app.services.market_data import MarketDataService
 
 
 class RelativeStrengthService:
 
-    LOOKBACK_3M = 63
-    LOOKBACK_6M = 126
-    LOOKBACK_12M = 252
+    LOOKBACK_3M = ConfigService.get("relative_strength_3m_lookback", 63)
+    LOOKBACK_6M = ConfigService.get("relative_strength_6m_lookback", 126)
+    LOOKBACK_12M = ConfigService.get("relative_strength_12m_lookback", 252)
 
-    WEIGHT_3M = 0.30
-    WEIGHT_6M = 0.30
-    WEIGHT_12M = 0.40
+    WEIGHT_3M = ConfigService.get("relative_strength_3m_weight", 0.30)
+    WEIGHT_6M = ConfigService.get("relative_strength_6m_weight", 0.30)
+    WEIGHT_12M = ConfigService.get("relative_strength_12m_weight", 0.40)
 
     @staticmethod
     def get_rankings(

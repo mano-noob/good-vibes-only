@@ -1,9 +1,11 @@
 import math
 
+from app.core.config_service import ConfigService
 from app.services.market_data import MarketDataService
 from app.indicators.technical_indicators import TechnicalIndicators
 from app.strategies.breakout_strategy import BreakoutStrategy
 from app.services.ai_analysis_service import AIAnalysisService
+from app.core.logger import LoggerService
 
 
 class TradingService:
@@ -76,14 +78,34 @@ class TradingService:
             score += 10
 
         return score
-    
-        
+
+    @staticmethod
+    def calculate_priority(readiness_score):
+
+        priority_map = ConfigService.get("priority", {"A": 90, "B": 75, "C": 60, "D": 40})
+
+        if readiness_score >= priority_map.get("A", 90):
+            return "A"
+
+        if readiness_score >= priority_map.get("B", 75):
+            return "B"
+
+        if readiness_score >= priority_map.get("C", 60):
+            return "C"
+
+        if readiness_score >= priority_map.get("D", 40):
+            return "D"
+
+        return "IGNORE"
     
     @staticmethod
     def analyze_stock(
         symbol: str,
         df=None
     ):
+
+        LoggerService.info(f"Trading analysis start {symbol}")
+        start_time = __import__("datetime").datetime.now()
 
         if df is None:
 
@@ -152,11 +174,13 @@ class TradingService:
 
         )
         result["readiness_score"] = (
+            TradingService.calculate_readiness(signal)
+        )
 
-            TradingService
-
-            .calculate_readiness(signal)
-
+        result["priority"] = (
+            TradingService.calculate_priority(
+                result["readiness_score"]
+            )
         )
 
         if (
@@ -175,4 +199,5 @@ class TradingService:
 
             result["ai_analysis"] = None
 
+        LoggerService.timing(f"TradingService.analyze_stock {symbol}", start_time)
         return result

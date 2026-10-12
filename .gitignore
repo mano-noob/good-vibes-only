@@ -24,6 +24,10 @@ Thumbs.db
 *.sqlite
 *.sqlite3
 
+# Runtime trading data snapshots
+data/stock_lifecycle.json
+data/review_history.json
+
 # Temporary files
 *.tmp
 *.temp

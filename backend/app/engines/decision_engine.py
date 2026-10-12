@@ -1,4 +1,12 @@
+from app.core.logger import LoggerService
+
+
 class DecisionEngine:
+
+    @staticmethod
+    def is_exit_action(decision):
+
+        return bool(decision) and decision.get("action") == "EXIT"
 
     @staticmethod
     def decide(
@@ -8,19 +16,29 @@ class DecisionEngine:
         market_regime: str
     ):
 
+        LoggerService.info(f"DecisionEngine {symbol} signal={signal} regime={market_regime} owned={owned}")
+
+        # ---------------------------------
+        # EXISTING POSITION
+        # ---------------------------------
+
         if owned:
 
             if signal == "BUY":
 
                 return {
                     "action": "HOLD",
-                    "reason": "Existing position still valid"
+                    "reason": "Existing position still satisfies entry conditions"
                 }
 
             return {
-                "action": "EXIT",
-                "reason": "Strategy conditions no longer satisfied"
+                "action": "HOLD",
+                "reason": "No new entry signal, but no explicit exit condition is present"
             }
+
+        # ---------------------------------
+        # NEW POSITION
+        # ---------------------------------
 
         if (
             signal == "BUY"
@@ -29,7 +47,7 @@ class DecisionEngine:
 
             return {
                 "action": "BUY",
-                "reason": "Breakout in bullish market"
+                "reason": "Breakout confirmed in bullish market"
             }
 
         if (

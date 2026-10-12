@@ -1,15 +1,13 @@
 import pandas as pd
 
+from app.core.config_service import ConfigService
+
 
 class BreakoutStrategy:
 
-    BREAKOUT_LOOKBACK = 55
-    VOLUME_LOOKBACK = 20
-    CONSOLIDATION_LOOKBACK = 10
-
-    RSI_THRESHOLD = 55
-    VOLUME_MULTIPLIER = 1.5
-    CONSOLIDATION_RANGE = 0.08
+    @staticmethod
+    def _value(key, default):
+        return ConfigService.get(key, default)
 
     @staticmethod
     def generate_signal(df):
@@ -23,25 +21,31 @@ class BreakoutStrategy:
 
         latest = df.iloc[-1]
 
+        breakout_lookback = BreakoutStrategy._value("breakout_lookback", 55)
+        volume_lookback = BreakoutStrategy._value("volume_lookback", 20)
+        consolidation_lookback = BreakoutStrategy._value("consolidation_lookback", 10)
+        consolidation_range = BreakoutStrategy._value("consolidation_range", 0.08)
+        volume_multiplier = BreakoutStrategy._value("volume_multiplier", 1.5)
+        rsi_threshold = BreakoutStrategy._value("rsi_buy_threshold", 55)
+
         previous_55_high = (
             df["High"]
-            .rolling(window=BreakoutStrategy.BREAKOUT_LOOKBACK)
+            .rolling(window=breakout_lookback)
             .max()
             .iloc[-2]
         )
 
         avg_volume = (
             df["Volume"]
-            .rolling(window=BreakoutStrategy.VOLUME_LOOKBACK)
+            .rolling(window=volume_lookback)
             .mean()
             .iloc[-1]
         )
 
-        
         last_10_high = (
             df["High"]
             .iloc[
-                -(BreakoutStrategy.CONSOLIDATION_LOOKBACK + 1):-1
+                -(consolidation_lookback + 1):-1
             ]
             .max()
         )
@@ -49,12 +53,11 @@ class BreakoutStrategy:
         last_10_low = (
             df["Low"]
             .iloc[
-                -(BreakoutStrategy.CONSOLIDATION_LOOKBACK + 1):-1
+                -(consolidation_lookback + 1):-1
             ]
             .min()
         )
 
-        
         consolidation = bool(
 
             (
@@ -69,7 +72,7 @@ class BreakoutStrategy:
 
             <
 
-            BreakoutStrategy.CONSOLIDATION_RANGE
+            consolidation_range
 
         )
 
@@ -114,11 +117,11 @@ class BreakoutStrategy:
 
         high_volume = bool(
             latest["Volume"]
-            > avg_volume * BreakoutStrategy.VOLUME_MULTIPLIER
+            > avg_volume * volume_multiplier
         )
 
         rsi_condition = bool(
-            latest["RSI"] > BreakoutStrategy.RSI_THRESHOLD
+            latest["RSI"] > rsi_threshold
         )
 
         

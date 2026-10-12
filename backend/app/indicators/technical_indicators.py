@@ -1,13 +1,18 @@
 import pandas as pd
 
+from app.core.config_service import ConfigService
+
 
 class TechnicalIndicators:
 
     @staticmethod
     def calculate_ema(
         df: pd.DataFrame,
-        period: int = 20
+        period: int = None
     ) -> pd.Series:
+
+        if period is None:
+            period = ConfigService.get("ema_fast", 20)
 
         return df["Close"].ewm(
             span=period,
@@ -67,7 +72,7 @@ class TechnicalIndicators:
 
         return (
             df["Close"]
-            .ewm(span=50, adjust=False)
+            .ewm(span=ConfigService.get("ema_medium", 50), adjust=False)
             .mean()
         )
 
@@ -77,7 +82,7 @@ class TechnicalIndicators:
 
         return (
             df["Close"]
-            .ewm(span=200, adjust=False)
+            .ewm(span=ConfigService.get("ema_slow", 200), adjust=False)
             .mean()
         )
     

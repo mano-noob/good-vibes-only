@@ -21,6 +21,9 @@ from app.api.review import (
 from app.api.decision import (
     router as decision_router
 )
+from app.api.portfolio import (
+    router as portfolio_router
+)
 
 print("PORTFOLIO IMPORT SUCCESS")
 
@@ -123,4 +126,10 @@ app.include_router(
 
     tags=["Review"]
 
+)
+
+app.include_router(
+    portfolio_router,
+    prefix="/api/v1/portfolio",
+    tags=["Portfolio"]
 )

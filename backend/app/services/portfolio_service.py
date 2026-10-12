@@ -1,36 +1,61 @@
 import json
-import os
+
+from app.core.config_service import ConfigService
+from app.core.logger import LoggerService
+from app.services.position_service import PositionService
+from runtime_paths import PORTFOLIO_FILE
 
 
 class PortfolioService:
 
-    PORTFOLIO_FILE = "portfolio.json"
+    PORTFOLIO_FILE = PORTFOLIO_FILE
 
     @staticmethod
     def load():
 
-        if not os.path.exists(
-            PortfolioService.PORTFOLIO_FILE
-        ):
+        if not PortfolioService.PORTFOLIO_FILE.exists():
 
             return {
-                "cash": 100000,
+                "cash": ConfigService.get("capital", 100000),
                 "positions": []
             }
 
-        with open(
-            PortfolioService.PORTFOLIO_FILE,
-            "r"
+        with PortfolioService.PORTFOLIO_FILE.open(
+            "r",
+            encoding="utf-8"
         ) as f:
 
-            return json.load(f)
+            portfolio = json.load(f)
+
+        if portfolio is None:
+            return {
+                "cash": ConfigService.get("capital", 100000),
+                "positions": []
+            }
+
+        portfolio.setdefault("cash", ConfigService.get("capital", 100000))
+        portfolio.setdefault("positions", [])
+
+        portfolio["positions"] = [
+            PositionService.normalize_position(position)
+            for position in portfolio["positions"]
+        ]
+
+        return portfolio
 
     @staticmethod
     def save(portfolio):
 
-        with open(
-            PortfolioService.PORTFOLIO_FILE,
-            "w"
+        LoggerService.info("Portfolio Update")
+
+        PortfolioService.PORTFOLIO_FILE.parent.mkdir(
+            parents=True,
+            exist_ok=True
+        )
+
+        with PortfolioService.PORTFOLIO_FILE.open(
+            "w",
+            encoding="utf-8"
         ) as f:
 
             json.dump(
@@ -52,19 +77,28 @@ class PortfolioService:
         )
 
     @staticmethod
-    def is_owned(symbol):
+    def get_position(symbol):
 
         positions = (
             PortfolioService
             .get_positions()
         )
 
-        return any(
+        for position in positions:
 
-            p["symbol"] == symbol
+            if position.get("symbol") == symbol:
 
-            for p in positions
+                return position
 
+        return None
+
+    @staticmethod
+    def is_owned(symbol):
+
+        return (
+            PortfolioService
+            .get_position(symbol)
+            is not None
         )
 
     @staticmethod
@@ -74,8 +108,38 @@ class PortfolioService:
             PortfolioService.load()
         )
 
+        normalized_position = PositionService.normalize_position(position)
+
+        symbol = normalized_position.get("symbol")
+
+        existing = next(
+            (
+                p
+                for p in portfolio["positions"]
+                if p.get("symbol") == symbol
+            ),
+            None
+        )
+
+        if existing:
+
+            raise ValueError(
+                f"Position already exists: {symbol}"
+            )
+
+        normalized_position.setdefault("highest_price", normalized_position.get("entry_price", 0.0))
+        normalized_position.setdefault("highest_profit_pct", 0.0)
+        normalized_position.setdefault("max_drawdown_pct", 0.0)
+        normalized_position.setdefault("current_stop", normalized_position.get("initial_stop", 0.0))
+        normalized_position.setdefault("entry_priority", "")
+        normalized_position.setdefault("entry_readiness", 0)
+        normalized_position.setdefault("relative_strength", 0.0)
+        normalized_position.setdefault("market_regime", "")
+        normalized_position.setdefault("entry_signal", "")
+        normalized_position.setdefault("entry_date", normalized_position.get("entry_date") or "")
+
         portfolio["positions"].append(
-            position
+            normalized_position
         )
 
         PortfolioService.save(
@@ -95,7 +159,7 @@ class PortfolioService:
 
             for p in portfolio["positions"]
 
-            if p["symbol"] != symbol
+            if p.get("symbol") != symbol
 
         ]
 
