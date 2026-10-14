@@ -1,4 +1,5 @@
 from app.core.config_service import ConfigService
+from app.core.logger import LoggerService
 from app.core.watchlist import NIFTY_100
 from app.services.market_data import MarketDataService
 
@@ -99,9 +100,7 @@ class RelativeStrengthService:
 
             except Exception as e:
 
-                print(
-                    f"RS Error {symbol}: {e}"
-                )
+                LoggerService.error_event("relative_strength_error", symbol=symbol, error=str(e))
 
         return sorted(
 

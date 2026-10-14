@@ -18,10 +18,6 @@ class DecisionEngine:
 
         LoggerService.info(f"DecisionEngine {symbol} signal={signal} regime={market_regime} owned={owned}")
 
-        # ---------------------------------
-        # EXISTING POSITION
-        # ---------------------------------
-
         if owned:
 
             if signal == "BUY":
@@ -35,10 +31,6 @@ class DecisionEngine:
                 "action": "HOLD",
                 "reason": "No new entry signal, but no explicit exit condition is present"
             }
-
-        # ---------------------------------
-        # NEW POSITION
-        # ---------------------------------
 
         if (
             signal == "BUY"

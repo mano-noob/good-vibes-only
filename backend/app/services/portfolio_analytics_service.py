@@ -3,6 +3,7 @@ from app.services.trade_journal_service import TradeJournalService
 
 
 class PortfolioAnalyticsService:
+    """Summarize portfolio value, realized PnL, and trade health."""
 
     @staticmethod
     def get_summary():

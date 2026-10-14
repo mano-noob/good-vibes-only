@@ -1,3 +1,5 @@
+"""Portfolio persistence and mutation helpers."""
+
 import json
 
 from app.core.config_service import ConfigService
@@ -7,6 +9,7 @@ from runtime_paths import PORTFOLIO_FILE
 
 
 class PortfolioService:
+    """Load, normalize, and save the runtime portfolio record."""
 
     PORTFOLIO_FILE = PORTFOLIO_FILE
 
@@ -15,6 +18,7 @@ class PortfolioService:
 
         if not PortfolioService.PORTFOLIO_FILE.exists():
 
+            LoggerService.info_event("portfolio_loaded", source="default")
             return {
                 "cash": ConfigService.get("capital", 100000),
                 "positions": []
@@ -36,6 +40,8 @@ class PortfolioService:
         portfolio.setdefault("cash", ConfigService.get("capital", 100000))
         portfolio.setdefault("positions", [])
 
+        LoggerService.info_event("portfolio_loaded", positions=len(portfolio.get("positions", [])), cash=portfolio.get("cash"))
+
         portfolio["positions"] = [
             PositionService.normalize_position(position)
             for position in portfolio["positions"]
@@ -46,7 +52,7 @@ class PortfolioService:
     @staticmethod
     def save(portfolio):
 
-        LoggerService.info("Portfolio Update")
+        LoggerService.info_event("portfolio_saved", positions=len(portfolio.get("positions", [])), cash=portfolio.get("cash"))
 
         PortfolioService.PORTFOLIO_FILE.parent.mkdir(
             parents=True,

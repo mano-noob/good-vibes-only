@@ -1,11 +1,12 @@
-from pathlib import Path
-import os
+"""Legacy review smoke-check placeholder.
 
-base = Path(r"C:\Users\manoj\Trading_Agent\good-vibes-only\backend")
-os.chdir(base)
+This file used to run ad-hoc debugging during review generation. The project should not
+keep debug scripts in runtime code paths, so it intentionally stays inert.
+"""
 
-from app.services.review_service import ReviewService
+from __future__ import annotations
 
-review = ReviewService.generate_review()
-print(review["portfolio_summary"])
-print(review["hold"][:1])
+
+def smoke_check() -> None:
+    """Reserved for lightweight manual validation in a developer shell."""
+    return None

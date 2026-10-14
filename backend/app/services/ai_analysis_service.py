@@ -8,7 +8,6 @@ class AIAnalysisService:
 
         signal = data["signal"]["signal"]
 
-        # Deterministic interpretation
         trend = (
             "bullish"
             if data["close_price"] > data["ema20"]

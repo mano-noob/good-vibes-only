@@ -67,10 +67,7 @@ class OptimizationService:
 
                 except Exception as e:
 
-                    print(
-                        symbol,
-                        e
-                    )
+                    LoggerService.error_event("optimization_error", symbol=symbol, error=str(e))
 
             portfolio_pf = (
                 round(

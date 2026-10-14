@@ -1,3 +1,5 @@
+import copy
+import time
 from datetime import datetime
 
 from app.services.market_regime_service import (
@@ -40,6 +42,18 @@ from app.services.risk_management_service import (
     RiskManagementService
 )
 
+from app.services.review_summary_service import (
+    ReviewSummaryService
+)
+
+from app.services.position_sizing_service import (
+    PositionSizingService
+)
+
+from app.services.alert_service import (
+    AlertService
+)
+
 from app.core.config_service import (
     ConfigService
 )
@@ -52,24 +66,36 @@ from app.core.logger import (
 class ReviewService:
 
     @staticmethod
+    def get_latest_review():
+        history = ReviewHistory.load()
+        if history:
+            return copy.deepcopy(history[-1])
+        return ReviewService.generate_review()
+
+    @staticmethod
     def generate_review():
 
+        total_start = time.perf_counter()
         LoggerService.info("Review Start")
         start_time = datetime.now()
 
+        stage_start = time.perf_counter()
         regime = (
             MarketRegimeService
             .get_market_regime()
         )
+        LoggerService.info(
+            f"Stage MarketRegimeService completed in {(time.perf_counter() - stage_start):.3f}s"
+        )
 
-        # ---------------------------------
-        # GET ALL RANKINGS
-        # ---------------------------------
-
+        stage_start = time.perf_counter()
         all_rankings = (
             RelativeStrengthService.get_rankings(
                 return_data=True
             )
+        )
+        LoggerService.info(
+            f"Stage RelativeStrengthService completed in {(time.perf_counter() - stage_start):.3f}s"
         )
 
         max_candidates = ConfigService.get("relative_strength_count", 20)
@@ -103,11 +129,6 @@ class ReviewService:
 
         }
 
-        # ---------------------------------
-        # INCLUDE OWNED STOCKS EVEN IF
-        # OUTSIDE TOP 20
-        # ---------------------------------
-
         ranked_by_symbol = {
 
             stock["symbol"]: stock
@@ -128,6 +149,7 @@ class ReviewService:
             owned_symbols
         )
 
+        stage_start = time.perf_counter()
         review_stocks = [
 
             ranked_by_symbol[symbol]
@@ -137,6 +159,9 @@ class ReviewService:
             if symbol in ranked_by_symbol
 
         ]
+        LoggerService.info(
+            f"Stage Review stock selection completed in {(time.perf_counter() - stage_start):.3f}s"
+        )
 
         buy = []
 
@@ -148,22 +173,23 @@ class ReviewService:
 
         analysis_by_symbol = {}
 
-        # ---------------------------------
-        # ANALYSE STOCKS
-        # ---------------------------------
-
+        stage_start = time.perf_counter()
         for stock in review_stocks:
 
             symbol = stock["symbol"]
 
             df = stock["df"]
 
+            analysis_start = time.perf_counter()
             analysis = (
                 TradingService
                 .analyze_stock(
                     symbol=symbol,
                     df=df
                 )
+            )
+            LoggerService.info(
+                f"Stage TradingService.analyze_stock {symbol} completed in {(time.perf_counter() - analysis_start):.3f}s"
             )
 
             owned = (
@@ -188,10 +214,6 @@ class ReviewService:
 
             analysis_by_symbol[symbol] = analysis
 
-            # ---------------------------------
-            # ROUTE DECISION
-            # ---------------------------------
-
             if decision["action"] == "BUY":
 
                 LoggerService.info(f"BUY {symbol}")
@@ -201,6 +223,12 @@ class ReviewService:
                     atr=analysis.get("atr"),
                     available_cash=float(portfolio.get("cash", 0) or 0),
                     settings=ConfigService.all()
+                )
+                analysis["position_sizing"] = PositionSizingService.calculate(
+                    cash=float(portfolio.get("cash", 0) or 0),
+                    entry_price=float(analysis.get("close_price", 0) or 0),
+                    stop_price=float(analysis.get("close_price", 0) or 0) - float(analysis.get("atr", 0) or 0) * 2,
+                    risk_percent=ConfigService.get("risk_per_trade_pct", 1.0),
                 )
 
                 buy.append(analysis)
@@ -260,6 +288,11 @@ class ReviewService:
 
                 watchlist.append(analysis)
 
+        LoggerService.info(
+            f"Stage Decision engine + per-stock analysis completed in {(time.perf_counter() - stage_start):.3f}s"
+        )
+
+        stage_start = time.perf_counter()
         for position in portfolio["positions"]:
 
             symbol = position.get("symbol")
@@ -317,10 +350,9 @@ class ReviewService:
 
         PortfolioService.save(portfolio)
         LoggerService.info("Portfolio Update")
-
-        # ---------------------------------
-        # SORT WATCHLIST
-        # ---------------------------------
+        LoggerService.info(
+            f"Stage Portfolio analysis completed in {(time.perf_counter() - stage_start):.3f}s"
+        )
 
         watchlist = sorted(
 
@@ -339,10 +371,6 @@ class ReviewService:
         )
 
         full_watchlist = watchlist.copy()
-
-        # ---------------------------------
-        # BUILD REVIEW
-        # ---------------------------------
 
         for item in hold:
 
@@ -500,10 +528,6 @@ class ReviewService:
         watchlist_size = ConfigService.get("watchlist_size", 10)
         review["watchlist"] = review["watchlist"][:watchlist_size]
 
-        # ---------------------------------
-        # COMPARE WITH PREVIOUS REVIEW
-        # ---------------------------------
-
         history = ReviewHistory.load()
 
         previous = (
@@ -567,11 +591,40 @@ class ReviewService:
         comparison["holding_changes"] = holding_changes
         review["changes"] = comparison
 
+        stage_start = time.perf_counter()
+        review["summary"] = ReviewSummaryService.generate(review)
+        LoggerService.info(
+            f"Stage Summary generation completed in {(time.perf_counter() - stage_start):.3f}s"
+        )
+
+        stage_start = time.perf_counter()
+        review["alerts"] = AlertService.generate(review)
+        LoggerService.info(
+            f"Stage Alert generation completed in {(time.perf_counter() - stage_start):.3f}s"
+        )
+
+        LoggerService.info_event(
+            "review_generated",
+            market_regime=regime,
+            buy_count=len(buy),
+            hold_count=len(hold),
+            exit_count=len(exit_list),
+            watchlist_count=len(watchlist[:10]),
+            summary=review["summary"],
+        )
+
+        stage_start = time.perf_counter()
         ReviewHistory.append(review)
+        LoggerService.info(
+            f"Stage Review history persisted completed in {(time.perf_counter() - stage_start):.3f}s"
+        )
 
         review.pop(
             "full_watchlist",
             None
         )
 
+        total_elapsed = time.perf_counter() - total_start
+        LoggerService.info(f"Total ReviewService.generate_review execution time: {total_elapsed:.3f}s")
+        LoggerService.timing("ReviewService.generate_review", start_time)
         return review

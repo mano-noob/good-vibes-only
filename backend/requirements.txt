@@ -1,10 +1,8 @@
 fastapi
-uvicorn
 pandas
 numpy
 yfinance
+apscheduler
 python-dotenv
 requests
 ollama
-sqlalchemy
-psycopg2-binary

@@ -1,36 +1,37 @@
-import yfinance as yf
-import pandas as pd
+"""Cached market-data access for price history lookups."""
+
 from functools import lru_cache
+
+import pandas as pd
+import yfinance as yf
 
 
 class MarketDataService:
+    """Download and normalize OHLCV history for symbols."""
+
+    DEFAULT_PERIOD = "2y"
+    DEFAULT_INTERVAL = "1d"
 
     @staticmethod
     @lru_cache(maxsize=256)
     def get_stock_data(
         symbol: str,
-        period: str = "2y",
-        interval: str = "1d"
+        period: str = DEFAULT_PERIOD,
+        interval: str = DEFAULT_INTERVAL,
     ) -> pd.DataFrame:
-
         df = yf.download(
             symbol,
             period=period,
             interval=interval,
             auto_adjust=True,
-            progress=False
+            progress=False,
         )
 
         if df.empty:
             raise ValueError(f"No data found for {symbol}")
 
-        # Flatten multi-index columns
         if isinstance(df.columns, pd.MultiIndex):
             df.columns = df.columns.get_level_values(0)
 
-        df.reset_index(inplace=True)
-
-        # Remove rows with NaN close prices
-        df = df.dropna(subset=["Close"])
-
-        return df
+        df = df.reset_index()
+        return df.dropna(subset=["Close"])

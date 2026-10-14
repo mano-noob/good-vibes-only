@@ -1,3 +1,4 @@
+from app.core.logger import LoggerService
 from app.services.backtest_service import (
     BacktestService
 )
@@ -77,13 +78,11 @@ class PortfolioBacktestService:
 
         ]
 
-        print(
-            f"Selected {len(top_stocks)} stocks"
-        )
+        LoggerService.info_event("portfolio_backtest_started", stock_count=len(top_stocks))
 
         for symbol in top_stocks:
 
-            print(f"Testing {symbol}")
+            LoggerService.info_event("portfolio_backtest_symbol", symbol=symbol)
 
             try:
 
@@ -96,9 +95,7 @@ class PortfolioBacktestService:
                     )
                 )
 
-                print(
-                    f"Completed {symbol}"
-                )
+                LoggerService.info_event("portfolio_backtest_completed", symbol=symbol, trades=result.get("trades"))
 
                 if result["trades"] == 0:
 
@@ -136,9 +133,7 @@ class PortfolioBacktestService:
 
             except Exception as e:
 
-                print(
-                    f"Error testing {symbol}: {e}"
-                )
+                LoggerService.error_event("portfolio_backtest_error", symbol=symbol, error=str(e))
 
         ranked = sorted(
 

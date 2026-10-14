@@ -1,3 +1,4 @@
+from app.core.logger import LoggerService
 from app.services.trading_service import TradingService
 
 TOP_RS_STOCKS = [
@@ -31,7 +32,7 @@ class ScannerService:
 
             try:
 
-                print(f"Scanning {symbol}")
+                LoggerService.info_event("scanner_symbol_scan", symbol=symbol)
 
                 analysis = (
                     TradingService
@@ -42,6 +43,7 @@ class ScannerService:
 
             except Exception as e:
 
+                LoggerService.error_event("scanner_symbol_failure", symbol=symbol, error=str(e))
                 results.append({
 
                     "symbol": symbol,

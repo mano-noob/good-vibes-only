@@ -5,6 +5,7 @@ from app.services.market_data import MarketDataService
 from app.indicators.technical_indicators import TechnicalIndicators
 from app.strategies.breakout_strategy import BreakoutStrategy
 from app.services.ai_analysis_service import AIAnalysisService
+from app.services.risk_rating_service import RiskRatingService
 from app.core.logger import LoggerService
 
 
@@ -182,6 +183,14 @@ class TradingService:
                 result["readiness_score"]
             )
         )
+        result["risk_rating"] = RiskRatingService.rate({
+            "rsi": result.get("rsi"),
+            "atr": result.get("atr"),
+            "atr_pct": (result.get("atr", 0) / result.get("close_price", 1) * 100) if result.get("close_price") else 0,
+            "trend_confirmation": signal.get("diagnostics", {}).get("trend_confirmation", False),
+            "market_regime": "Bullish",
+            "signal": signal,
+        })
 
         if (
             signal["signal"] == "BUY"

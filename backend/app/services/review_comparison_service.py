@@ -1,3 +1,6 @@
+from app.core.logger import LoggerService
+
+
 class ReviewComparisonService:
 
     @staticmethod
@@ -129,12 +132,10 @@ class ReviewComparisonService:
         )
 
         if previous is not None:
-            print(
-                "Comparing current review against previous review"
-            )
-            print(
-                f"Previous watchlist: {len(previous_watch)} | "
-                f"Current watchlist: {len(current_watch)}"
+            LoggerService.info_event(
+                "review_comparison_started",
+                previous_watchlist_count=len(previous_watch),
+                current_watchlist_count=len(current_watch),
             )
 
         previous_watch_map = stock_map(

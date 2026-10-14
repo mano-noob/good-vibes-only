@@ -1,0 +1,69 @@
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  min-height: 100vh;
+  background: #121212;
+  color: #ffffff;
+  font-family: "Inter", "Roboto", sans-serif;
+}
+
+body {
+  background: #121212;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.MuiCard-root {
+  border-radius: 14px !important;
+}
+
+.MuiDataGrid-root {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.MuiStack-root,
+.MuiGrid-root,
+.MuiBox-root {
+  transition: all 0.2s ease;
+}

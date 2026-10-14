@@ -2,6 +2,8 @@ from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 
 from app.core.alert_state import LAST_SIGNALS
+from app.core.logger import LoggerService
+from app.services.review_service import ReviewService
 from app.services.scanner_service import ScannerService
 from app.services.telegram_service import TelegramService
 from app.utils.alert_formatter import format_trade_alert
@@ -36,21 +38,20 @@ def is_market_open():
 
 def run_market_scan():
 
-    print("=== SCHEDULER TRIGGERED ===")
+    LoggerService.info_event("scheduler_execution", phase="triggered")
 
     if not is_market_open():
 
-        print("Market closed. Skipping scan.")
-
+        LoggerService.info_event("scheduler_execution", phase="skipped", reason="market_closed")
         return
 
-    print("Running automated market scan...")
+    LoggerService.info_event("scheduler_execution", phase="scan_started")
 
     results = ScannerService.scan_market()
 
     for result in results:
 
-        print(result)
+        LoggerService.info_event("scanner_result", symbol=result.get("symbol"), payload=result)
 
         if "signal" not in result:
             continue
@@ -68,8 +69,7 @@ def run_market_scan():
 
         if previous_signal == signal:
 
-            print(f"Duplicate alert skipped for {symbol}")
-
+            LoggerService.warning_event("duplicate_alert", symbol=symbol, signal=signal)
             continue
 
         message = format_trade_alert(result)
@@ -78,7 +78,21 @@ def run_market_scan():
 
         LAST_SIGNALS[symbol] = signal
 
-        print(f"BUY alert sent for {symbol}")
+        LoggerService.info_event("buy_alert_sent", symbol=symbol, signal=signal)
+
+
+def run_review_generation():
+    LoggerService.info_event("scheduler_execution", phase="review_started")
+    review = ReviewService.generate_review()
+    LoggerService.info_event(
+        "scheduler_execution",
+        phase="review_completed",
+        market_regime=review.get("market_regime"),
+        buy_count=len(review.get("buy", [])),
+        hold_count=len(review.get("hold", [])),
+        watchlist_count=len(review.get("watchlist", [])),
+    )
+    return review
 
 
 def start_scheduler():
@@ -89,9 +103,12 @@ def start_scheduler():
         minutes=15
     )
 
+    scheduler.add_job(
+        run_review_generation,
+        trigger="interval",
+        minutes=15
+    )
+
     scheduler.start()
 
-    print(
-        f"=== SCHEDULER TRIGGERED === "
-        f"{datetime.now()}"
-    )
+    LoggerService.info_event("scheduler_started", timestamp=datetime.now().isoformat())

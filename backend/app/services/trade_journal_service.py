@@ -1,74 +1,68 @@
 import json
-from datetime import datetime
 from pathlib import Path
-
-from app.core.logger import LoggerService
+from typing import Any, Dict, List
 
 
 class TradeJournalService:
+    """Write and read the trade journal used for portfolio statistics and review snapshots."""
 
     DATA_DIR = Path(__file__).resolve().parents[2] / "data"
-    TRADE_HISTORY_FILE = DATA_DIR / "trade_history.json"
+    TRADES_FILE = DATA_DIR / "trades.json"
 
     @staticmethod
-    def load():
+    def load() -> List[Dict[str, Any]]:
+        TradeJournalService.DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-        TradeJournalService.DATA_DIR.mkdir(
-            parents=True,
-            exist_ok=True
-        )
-
-        if not TradeJournalService.TRADE_HISTORY_FILE.exists():
-            TradeJournalService.save([])
+        if not TradeJournalService.TRADES_FILE.exists():
+            with TradeJournalService.TRADES_FILE.open("w", encoding="utf-8") as file:
+                json.dump([], file, indent=4)
             return []
 
-        with TradeJournalService.TRADE_HISTORY_FILE.open(
-            "r",
-            encoding="utf-8"
-        ) as f:
-            data = json.load(f)
-
-        if data is None:
+        try:
+            with TradeJournalService.TRADES_FILE.open("r", encoding="utf-8") as file:
+                trades = json.load(file)
+        except (json.JSONDecodeError, TypeError, ValueError):
             return []
 
-        return data
+        if trades is None:
+            return []
+
+        if not isinstance(trades, list):
+            return []
+
+        return [trade for trade in trades if isinstance(trade, dict)]
 
     @staticmethod
-    def save(history):
-
-        TradeJournalService.DATA_DIR.mkdir(
-            parents=True,
-            exist_ok=True
-        )
-
-        with TradeJournalService.TRADE_HISTORY_FILE.open(
-            "w",
-            encoding="utf-8"
-        ) as f:
-            json.dump(history, f, indent=4)
+    def save(trades: List[Dict[str, Any]]) -> None:
+        TradeJournalService.DATA_DIR.mkdir(parents=True, exist_ok=True)
+        with TradeJournalService.TRADES_FILE.open("w", encoding="utf-8") as file:
+            json.dump(trades, file, indent=4)
 
     @staticmethod
-    def append_trade(trade):
-
-        LoggerService.info(f"Trade Recorded {trade.get('symbol')} {trade.get('trade_id')}")
-        history = TradeJournalService.load()
-        history.append(trade)
-        TradeJournalService.save(history)
-
-    @staticmethod
-    def get_all():
-
+    def get_all() -> List[Dict[str, Any]]:
         return TradeJournalService.load()
 
     @staticmethod
-    def generate_trade_id():
+    def append_trade(trade: Dict[str, Any]) -> Dict[str, Any]:
+        trades = TradeJournalService.load()
+        trades.append(trade)
+        TradeJournalService.save(trades)
+        return trade
 
-        history = TradeJournalService.load()
+    @staticmethod
+    def generate_trade_id() -> int:
+        trades = TradeJournalService.load()
+        trade_ids = [
+            int(float(trade.get("trade_id", 0) or 0))
+            for trade in trades
+            if isinstance(trade, dict) and str(trade.get("trade_id", "")).strip() not in ("", "None")
+        ]
+        return max(trade_ids, default=0) + 1
 
-        if not history:
-            return 1
+    @staticmethod
+    def get_open_trades() -> List[Dict[str, Any]]:
+        return [trade for trade in TradeJournalService.load() if str(trade.get("status", "")).upper() == "OPEN"]
 
-        return max(
-            int(item.get("trade_id", 0))
-            for item in history
-        ) + 1
+    @staticmethod
+    def get_closed_trades() -> List[Dict[str, Any]]:
+        return [trade for trade in TradeJournalService.load() if str(trade.get("status", "")).upper() == "CLOSED"]

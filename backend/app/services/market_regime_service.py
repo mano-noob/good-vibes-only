@@ -1,3 +1,4 @@
+from app.core.logger import LoggerService
 from app.services.market_data import MarketDataService
 from app.indicators.technical_indicators import (
     TechnicalIndicators
@@ -43,10 +44,7 @@ class MarketRegimeService:
 
         except Exception as e:
 
-            print(
-                f"Market regime error: {e}"
-            )
-
+            LoggerService.error_event("market_regime_error", error=str(e))
             return True
         
     @staticmethod

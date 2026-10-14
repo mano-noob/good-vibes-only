@@ -1,49 +1,34 @@
-import json
-from pathlib import Path
+from typing import Any
+
+from app.core.settings_service import SettingsService
 
 
 class ConfigService:
+    """Compatibility wrapper around the centralized runtime settings loader."""
 
-    SETTINGS_PATH = Path(__file__).resolve().parents[2] / "config" / "settings.json"
-    _CACHE = None
-
-    @staticmethod
-    def _load_file():
-
-        if not ConfigService.SETTINGS_PATH.exists():
-            return {}
-
-        with ConfigService.SETTINGS_PATH.open("r", encoding="utf-8") as f:
-            data = json.load(f)
-
-        return data if isinstance(data, dict) else {}
+    _CACHE: dict[str, Any] | None = None
 
     @staticmethod
-    def reload():
-
-        ConfigService._CACHE = ConfigService._load_file()
+    def reload() -> dict[str, Any]:
+        ConfigService._CACHE = SettingsService.load()
         return ConfigService._CACHE
 
     @staticmethod
-    def all():
-
+    def all() -> dict[str, Any]:
         if ConfigService._CACHE is None:
             ConfigService.reload()
-
-        return ConfigService._CACHE
+        return ConfigService._CACHE or {}
 
     @staticmethod
-    def get(key, default=None):
-
+    def get(key: str | None, default: Any = None) -> Any:
         config = ConfigService.all()
 
         if key is None:
             return config
-
         if "." not in key:
             return config.get(key, default)
 
-        current = config
+        current: Any = config
         for part in key.split("."):
             if not isinstance(current, dict):
                 return default
