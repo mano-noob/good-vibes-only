@@ -12699,5 +12699,4060 @@
                 "message": "New HOLD signal for TITAN.NS"
             }
         ]
+    },
+    {
+        "market_regime": "Bearish",
+        "buy": [],
+        "hold": [
+            {
+                "symbol": "TITAN.NS",
+                "close_price": 4400.0,
+                "ema20": 4654.45,
+                "ema50": 4757.71,
+                "ema200": 4436.42,
+                "atr": 104.11,
+                "rsi": 24.03,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "HOLD",
+                    "reason": "No new entry signal, but no explicit exit condition is present"
+                },
+                "relative_strength": 9.81,
+                "holding_health": "Exit Candidate",
+                "days_held": 63,
+                "profit_pct": -8.333333333333332,
+                "profit_amount": -4000.0,
+                "market_value": 44000.0,
+                "drawdown_from_peak": 14.88044571693879,
+                "highest_price": 5169.2,
+                "current_stop": 4960.98,
+                "comment": "Near trailing stop."
+            }
+        ],
+        "exit": [],
+        "watchlist": [
+            {
+                "symbol": "ADANIPORTS.NS",
+                "close_price": 1754.0,
+                "ema20": 1756.97,
+                "ema50": 1745.62,
+                "ema200": 1651.73,
+                "atr": 47.57,
+                "rsi": 46.18,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": true,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, RSI below threshold, No proper consolidation",
+                "readiness_score": 45,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 15.01
+            },
+            {
+                "symbol": "SAIL.NS",
+                "close_price": 171.0,
+                "ema20": 176.25,
+                "ema50": 176.64,
+                "ema200": 166.19,
+                "atr": 7.4,
+                "rsi": 46.02,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": true,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, RSI below threshold, No proper consolidation",
+                "readiness_score": 45,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 14.78
+            },
+            {
+                "symbol": "KOTAKBANK.NS",
+                "close_price": 443.4,
+                "ema20": 422.54,
+                "ema50": 412.4,
+                "ema200": 402.05,
+                "atr": 10.63,
+                "rsi": 70.14,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": true,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, No proper consolidation",
+                "readiness_score": 40,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 12.16
+            },
+            {
+                "symbol": "DIVISLAB.NS",
+                "close_price": 9426.0,
+                "ema20": 9356.6,
+                "ema50": 8922.6,
+                "ema200": 7534.87,
+                "atr": 211.82,
+                "rsi": 50.51,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 50.9
+            },
+            {
+                "symbol": "AUROPHARMA.NS",
+                "close_price": 1706.9,
+                "ema20": 1683.7,
+                "ema50": 1652.26,
+                "ema200": 1477.38,
+                "atr": 35.66,
+                "rsi": 48.52,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 33.37
+            },
+            {
+                "symbol": "PNB.NS",
+                "close_price": 116.0,
+                "ema20": 114.87,
+                "ema50": 114.24,
+                "ema200": 111.39,
+                "atr": 3.04,
+                "rsi": 45.63,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 6.86
+            },
+            {
+                "symbol": "NESTLEIND.NS",
+                "close_price": 1324.7,
+                "ema20": 1350.46,
+                "ema50": 1389.73,
+                "ema200": 1360.72,
+                "atr": 27.79,
+                "rsi": 37.78,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 5.11
+            },
+            {
+                "symbol": "CUMMINSIND.NS",
+                "close_price": 4835.0,
+                "ema20": 4915.49,
+                "ema50": 5074.52,
+                "ema200": 4937.43,
+                "atr": 113.43,
+                "rsi": 36.95,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 4.76
+            },
+            {
+                "symbol": "MOTHERSON.NS",
+                "close_price": 156.99,
+                "ema20": 159.45,
+                "ema50": 158.8,
+                "ema200": 140.69,
+                "atr": 4.61,
+                "rsi": 42.95,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 31.18
+            },
+            {
+                "symbol": "TORNTPHARM.NS",
+                "close_price": 4682.0,
+                "ema20": 4806.19,
+                "ema50": 4842.52,
+                "ema200": 4486.79,
+                "atr": 104.21,
+                "rsi": 29.35,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 15.7
+            }
+        ],
+        "full_watchlist": [
+            {
+                "symbol": "ADANIPORTS.NS",
+                "close_price": 1754.0,
+                "ema20": 1756.97,
+                "ema50": 1745.62,
+                "ema200": 1651.73,
+                "atr": 47.57,
+                "rsi": 46.18,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": true,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, RSI below threshold, No proper consolidation",
+                "readiness_score": 45,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 15.01
+            },
+            {
+                "symbol": "SAIL.NS",
+                "close_price": 171.0,
+                "ema20": 176.25,
+                "ema50": 176.64,
+                "ema200": 166.19,
+                "atr": 7.4,
+                "rsi": 46.02,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": true,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, RSI below threshold, No proper consolidation",
+                "readiness_score": 45,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 14.78
+            },
+            {
+                "symbol": "KOTAKBANK.NS",
+                "close_price": 443.4,
+                "ema20": 422.54,
+                "ema50": 412.4,
+                "ema200": 402.05,
+                "atr": 10.63,
+                "rsi": 70.14,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": true,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, No proper consolidation",
+                "readiness_score": 40,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 12.16
+            },
+            {
+                "symbol": "DIVISLAB.NS",
+                "close_price": 9426.0,
+                "ema20": 9356.6,
+                "ema50": 8922.6,
+                "ema200": 7534.87,
+                "atr": 211.82,
+                "rsi": 50.51,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 50.9
+            },
+            {
+                "symbol": "AUROPHARMA.NS",
+                "close_price": 1706.9,
+                "ema20": 1683.7,
+                "ema50": 1652.26,
+                "ema200": 1477.38,
+                "atr": 35.66,
+                "rsi": 48.52,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 33.37
+            },
+            {
+                "symbol": "PNB.NS",
+                "close_price": 116.0,
+                "ema20": 114.87,
+                "ema50": 114.24,
+                "ema200": 111.39,
+                "atr": 3.04,
+                "rsi": 45.63,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 6.86
+            },
+            {
+                "symbol": "NESTLEIND.NS",
+                "close_price": 1324.7,
+                "ema20": 1350.46,
+                "ema50": 1389.73,
+                "ema200": 1360.72,
+                "atr": 27.79,
+                "rsi": 37.78,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 5.11
+            },
+            {
+                "symbol": "CUMMINSIND.NS",
+                "close_price": 4835.0,
+                "ema20": 4915.49,
+                "ema50": 5074.52,
+                "ema200": 4937.43,
+                "atr": 113.43,
+                "rsi": 36.95,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 4.76
+            },
+            {
+                "symbol": "MOTHERSON.NS",
+                "close_price": 156.99,
+                "ema20": 159.45,
+                "ema50": 158.8,
+                "ema200": 140.69,
+                "atr": 4.61,
+                "rsi": 42.95,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 31.18
+            },
+            {
+                "symbol": "TORNTPHARM.NS",
+                "close_price": 4682.0,
+                "ema20": 4806.19,
+                "ema50": 4842.52,
+                "ema200": 4486.79,
+                "atr": 104.21,
+                "rsi": 29.35,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 15.7
+            },
+            {
+                "symbol": "BOSCHLTD.NS",
+                "close_price": 44585.0,
+                "ema20": 45879.47,
+                "ema50": 45598.34,
+                "ema200": 40799.63,
+                "atr": 1186.79,
+                "rsi": 36.66,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 14.81
+            },
+            {
+                "symbol": "ABB.NS",
+                "close_price": 6855.5,
+                "ema20": 7011.95,
+                "ema50": 7144.74,
+                "ema200": 6698.93,
+                "atr": 200.14,
+                "rsi": 36.5,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 14.04
+            },
+            {
+                "symbol": "ZYDUSLIFE.NS",
+                "close_price": 1134.4,
+                "ema20": 1148.56,
+                "ema50": 1139.98,
+                "ema200": 1057.36,
+                "atr": 30.7,
+                "rsi": 43.97,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 12.92
+            },
+            {
+                "symbol": "ETERNAL.NS",
+                "close_price": 323.0,
+                "ema20": 325.06,
+                "ema50": 317.99,
+                "ema200": 290.88,
+                "atr": 9.06,
+                "rsi": 40.14,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 12.76
+            },
+            {
+                "symbol": "SHRIRAMFIN.NS",
+                "close_price": 929.4,
+                "ema20": 977.66,
+                "ema50": 1012.54,
+                "ema200": 969.8,
+                "atr": 25.26,
+                "rsi": 31.42,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 10.81
+            },
+            {
+                "symbol": "SIEMENS.NS",
+                "close_price": 3654.0,
+                "ema20": 3780.71,
+                "ema50": 3815.55,
+                "ema200": 3606.87,
+                "atr": 109.08,
+                "rsi": 38.0,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 10.31
+            },
+            {
+                "symbol": "TVSMOTOR.NS",
+                "close_price": 3940.3,
+                "ema20": 4038.11,
+                "ema50": 4064.73,
+                "ema200": 3775.08,
+                "atr": 106.48,
+                "rsi": 32.08,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 8.59
+            },
+            {
+                "symbol": "BAJAJ-AUTO.NS",
+                "close_price": 10034.0,
+                "ema20": 10637.14,
+                "ema50": 10990.73,
+                "ema200": 10319.18,
+                "atr": 278.43,
+                "rsi": 22.21,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 7.01
+            },
+            {
+                "symbol": "LODHA.NS",
+                "close_price": 1069.7,
+                "ema20": 1122.68,
+                "ema50": 1140.76,
+                "ema200": 1087.36,
+                "atr": 34.23,
+                "rsi": 36.76,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 5.54
+            }
+        ],
+        "portfolio_summary": {
+            "cash": 100000.0,
+            "positions": 1,
+            "portfolio_value": 144000.0,
+            "market_value": 44000.0,
+            "unrealized_pnl": -4000.0,
+            "cash_percent": 69.44444444444444,
+            "invested_percent": 30.555555555555557,
+            "largest_position": {
+                "symbol": "TITAN.NS",
+                "market_value": 44000.0
+            },
+            "largest_gain": 0.0,
+            "largest_loss": -4000.0
+        },
+        "review_date": "2026-10-12 23:56",
+        "changes": {
+            "new_buy": [],
+            "removed_buy": [],
+            "new_watchlist": [
+                "CUMMINSIND.NS",
+                "KOTAKBANK.NS",
+                "LODHA.NS",
+                "NESTLEIND.NS",
+                "PNB.NS",
+                "ZYDUSLIFE.NS"
+            ],
+            "removed_watchlist": [
+                "ADANIENT.NS",
+                "CHOLAFIN.NS",
+                "HINDALCO.NS",
+                "INDUSINDBK.NS",
+                "NAUKRI.NS",
+                "TECHM.NS"
+            ],
+            "readiness_changes": [
+                {
+                    "symbol": "SHRIRAMFIN.NS",
+                    "previous_score": 45,
+                    "current_score": 25,
+                    "score_change": -20,
+                    "direction": "DOWN",
+                    "previous_priority": "D",
+                    "current_priority": "IGNORE",
+                    "condition_changes": [
+                        "Volume confirmation lost"
+                    ]
+                },
+                {
+                    "symbol": "SAIL.NS",
+                    "previous_score": 25,
+                    "current_score": 45,
+                    "score_change": 20,
+                    "direction": "UP",
+                    "previous_priority": "IGNORE",
+                    "current_priority": "D",
+                    "condition_changes": [
+                        "Volume confirmation confirmed"
+                    ]
+                },
+                {
+                    "symbol": "ADANIPORTS.NS",
+                    "previous_score": 25,
+                    "current_score": 45,
+                    "score_change": 20,
+                    "direction": "UP",
+                    "previous_priority": "IGNORE",
+                    "current_priority": "D",
+                    "condition_changes": [
+                        "Volume confirmation confirmed"
+                    ]
+                },
+                {
+                    "symbol": "DIVISLAB.NS",
+                    "previous_score": 50,
+                    "current_score": 35,
+                    "score_change": -15,
+                    "direction": "DOWN",
+                    "previous_priority": "D",
+                    "current_priority": "IGNORE",
+                    "condition_changes": [
+                        "RSI confirmation lost"
+                    ]
+                },
+                {
+                    "symbol": "AUROPHARMA.NS",
+                    "previous_score": 50,
+                    "current_score": 35,
+                    "score_change": -15,
+                    "direction": "DOWN",
+                    "previous_priority": "D",
+                    "current_priority": "IGNORE",
+                    "condition_changes": [
+                        "RSI confirmation lost"
+                    ]
+                },
+                {
+                    "symbol": "TORNTPHARM.NS",
+                    "previous_score": 35,
+                    "current_score": 25,
+                    "score_change": -10,
+                    "direction": "DOWN",
+                    "previous_priority": "IGNORE",
+                    "current_priority": "IGNORE",
+                    "condition_changes": [
+                        "Consolidation lost"
+                    ]
+                },
+                {
+                    "symbol": "SIEMENS.NS",
+                    "previous_score": 35,
+                    "current_score": 25,
+                    "score_change": -10,
+                    "direction": "DOWN",
+                    "previous_priority": "IGNORE",
+                    "current_priority": "IGNORE",
+                    "condition_changes": [
+                        "Consolidation lost"
+                    ]
+                },
+                {
+                    "symbol": "MOTHERSON.NS",
+                    "previous_score": 35,
+                    "current_score": 25,
+                    "score_change": -10,
+                    "direction": "DOWN",
+                    "previous_priority": "IGNORE",
+                    "current_priority": "IGNORE",
+                    "condition_changes": [
+                        "Consolidation lost"
+                    ]
+                },
+                {
+                    "symbol": "ETERNAL.NS",
+                    "previous_score": 35,
+                    "current_score": 25,
+                    "score_change": -10,
+                    "direction": "DOWN",
+                    "previous_priority": "IGNORE",
+                    "current_priority": "IGNORE",
+                    "condition_changes": [
+                        "Consolidation lost"
+                    ]
+                },
+                {
+                    "symbol": "BOSCHLTD.NS",
+                    "previous_score": 35,
+                    "current_score": 25,
+                    "score_change": -10,
+                    "direction": "DOWN",
+                    "previous_priority": "IGNORE",
+                    "current_priority": "IGNORE",
+                    "condition_changes": [
+                        "Consolidation lost"
+                    ]
+                },
+                {
+                    "symbol": "ABB.NS",
+                    "previous_score": 35,
+                    "current_score": 25,
+                    "score_change": -10,
+                    "direction": "DOWN",
+                    "previous_priority": "IGNORE",
+                    "current_priority": "IGNORE",
+                    "condition_changes": [
+                        "Consolidation lost"
+                    ]
+                }
+            ],
+            "holding_changes": []
+        },
+        "summary": {
+            "market": "Bearish",
+            "portfolio": {
+                "net_worth": 144000.0,
+                "cash": 100000.0,
+                "invested": 44000.0,
+                "positions": 1,
+                "unrealized_pnl": -4000.0
+            },
+            "holdings": {
+                "healthy": 0,
+                "weakening": 0,
+                "exit": 0
+            },
+            "review": {
+                "new_buy": 0,
+                "new_watchlist": 6,
+                "removed_watchlist": 6,
+                "major_upgrades": 0,
+                "major_downgrades": 0
+            },
+            "best_opportunity": {
+                "symbol": "ADANIPORTS.NS",
+                "priority": "D",
+                "readiness": 45
+            }
+        },
+        "alerts": [
+            {
+                "type": "HOLD",
+                "message": "New HOLD signal for TITAN.NS"
+            }
+        ]
+    },
+    {
+        "market_regime": "Bearish",
+        "buy": [],
+        "hold": [
+            {
+                "symbol": "TITAN.NS",
+                "close_price": 4400.0,
+                "ema20": 4654.45,
+                "ema50": 4757.71,
+                "ema200": 4436.42,
+                "atr": 104.11,
+                "rsi": 24.03,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "HOLD",
+                    "reason": "No new entry signal, but no explicit exit condition is present"
+                },
+                "relative_strength": 9.81,
+                "holding_health": "Exit Candidate",
+                "days_held": 64,
+                "profit_pct": -8.333333333333332,
+                "profit_amount": -4000.0,
+                "market_value": 44000.0,
+                "drawdown_from_peak": 14.88044571693879,
+                "highest_price": 5169.2,
+                "current_stop": 4960.98,
+                "comment": "Near trailing stop."
+            }
+        ],
+        "exit": [],
+        "watchlist": [
+            {
+                "symbol": "ADANIPORTS.NS",
+                "close_price": 1754.0,
+                "ema20": 1756.97,
+                "ema50": 1745.62,
+                "ema200": 1651.73,
+                "atr": 47.57,
+                "rsi": 46.18,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": true,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, RSI below threshold, No proper consolidation",
+                "readiness_score": 45,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 15.01
+            },
+            {
+                "symbol": "SAIL.NS",
+                "close_price": 171.0,
+                "ema20": 176.25,
+                "ema50": 176.64,
+                "ema200": 166.19,
+                "atr": 7.4,
+                "rsi": 46.02,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": true,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, RSI below threshold, No proper consolidation",
+                "readiness_score": 45,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 14.78
+            },
+            {
+                "symbol": "KOTAKBANK.NS",
+                "close_price": 443.4,
+                "ema20": 422.54,
+                "ema50": 412.4,
+                "ema200": 402.05,
+                "atr": 10.63,
+                "rsi": 70.14,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": true,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, No proper consolidation",
+                "readiness_score": 40,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 12.16
+            },
+            {
+                "symbol": "DIVISLAB.NS",
+                "close_price": 9426.0,
+                "ema20": 9356.6,
+                "ema50": 8922.6,
+                "ema200": 7534.87,
+                "atr": 211.82,
+                "rsi": 50.51,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 50.9
+            },
+            {
+                "symbol": "AUROPHARMA.NS",
+                "close_price": 1706.9,
+                "ema20": 1683.7,
+                "ema50": 1652.26,
+                "ema200": 1477.38,
+                "atr": 35.66,
+                "rsi": 48.52,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 33.37
+            },
+            {
+                "symbol": "PNB.NS",
+                "close_price": 116.0,
+                "ema20": 114.87,
+                "ema50": 114.24,
+                "ema200": 111.39,
+                "atr": 3.04,
+                "rsi": 45.63,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 6.86
+            },
+            {
+                "symbol": "NESTLEIND.NS",
+                "close_price": 1324.7,
+                "ema20": 1350.46,
+                "ema50": 1389.73,
+                "ema200": 1360.72,
+                "atr": 27.79,
+                "rsi": 37.78,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 5.11
+            },
+            {
+                "symbol": "CUMMINSIND.NS",
+                "close_price": 4835.0,
+                "ema20": 4915.49,
+                "ema50": 5074.52,
+                "ema200": 4937.43,
+                "atr": 113.43,
+                "rsi": 36.95,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 4.76
+            },
+            {
+                "symbol": "MOTHERSON.NS",
+                "close_price": 156.99,
+                "ema20": 159.45,
+                "ema50": 158.8,
+                "ema200": 140.69,
+                "atr": 4.61,
+                "rsi": 42.95,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 31.18
+            },
+            {
+                "symbol": "TORNTPHARM.NS",
+                "close_price": 4682.0,
+                "ema20": 4806.19,
+                "ema50": 4842.52,
+                "ema200": 4486.79,
+                "atr": 104.21,
+                "rsi": 29.35,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 15.7
+            }
+        ],
+        "full_watchlist": [
+            {
+                "symbol": "ADANIPORTS.NS",
+                "close_price": 1754.0,
+                "ema20": 1756.97,
+                "ema50": 1745.62,
+                "ema200": 1651.73,
+                "atr": 47.57,
+                "rsi": 46.18,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": true,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, RSI below threshold, No proper consolidation",
+                "readiness_score": 45,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 15.01
+            },
+            {
+                "symbol": "SAIL.NS",
+                "close_price": 171.0,
+                "ema20": 176.25,
+                "ema50": 176.64,
+                "ema200": 166.19,
+                "atr": 7.4,
+                "rsi": 46.02,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": true,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, RSI below threshold, No proper consolidation",
+                "readiness_score": 45,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 14.78
+            },
+            {
+                "symbol": "KOTAKBANK.NS",
+                "close_price": 443.4,
+                "ema20": 422.54,
+                "ema50": 412.4,
+                "ema200": 402.05,
+                "atr": 10.63,
+                "rsi": 70.14,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": true,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, No proper consolidation",
+                "readiness_score": 40,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 12.16
+            },
+            {
+                "symbol": "DIVISLAB.NS",
+                "close_price": 9426.0,
+                "ema20": 9356.6,
+                "ema50": 8922.6,
+                "ema200": 7534.87,
+                "atr": 211.82,
+                "rsi": 50.51,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 50.9
+            },
+            {
+                "symbol": "AUROPHARMA.NS",
+                "close_price": 1706.9,
+                "ema20": 1683.7,
+                "ema50": 1652.26,
+                "ema200": 1477.38,
+                "atr": 35.66,
+                "rsi": 48.52,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 33.37
+            },
+            {
+                "symbol": "PNB.NS",
+                "close_price": 116.0,
+                "ema20": 114.87,
+                "ema50": 114.24,
+                "ema200": 111.39,
+                "atr": 3.04,
+                "rsi": 45.63,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 6.86
+            },
+            {
+                "symbol": "NESTLEIND.NS",
+                "close_price": 1324.7,
+                "ema20": 1350.46,
+                "ema50": 1389.73,
+                "ema200": 1360.72,
+                "atr": 27.79,
+                "rsi": 37.78,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 5.11
+            },
+            {
+                "symbol": "CUMMINSIND.NS",
+                "close_price": 4835.0,
+                "ema20": 4915.49,
+                "ema50": 5074.52,
+                "ema200": 4937.43,
+                "atr": 113.43,
+                "rsi": 36.95,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 4.76
+            },
+            {
+                "symbol": "MOTHERSON.NS",
+                "close_price": 156.99,
+                "ema20": 159.45,
+                "ema50": 158.8,
+                "ema200": 140.69,
+                "atr": 4.61,
+                "rsi": 42.95,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 31.18
+            },
+            {
+                "symbol": "TORNTPHARM.NS",
+                "close_price": 4682.0,
+                "ema20": 4806.19,
+                "ema50": 4842.52,
+                "ema200": 4486.79,
+                "atr": 104.21,
+                "rsi": 29.35,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 15.7
+            },
+            {
+                "symbol": "BOSCHLTD.NS",
+                "close_price": 44585.0,
+                "ema20": 45879.47,
+                "ema50": 45598.34,
+                "ema200": 40799.63,
+                "atr": 1186.79,
+                "rsi": 36.66,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 14.81
+            },
+            {
+                "symbol": "ABB.NS",
+                "close_price": 6855.5,
+                "ema20": 7011.95,
+                "ema50": 7144.74,
+                "ema200": 6698.93,
+                "atr": 200.14,
+                "rsi": 36.5,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 14.04
+            },
+            {
+                "symbol": "ZYDUSLIFE.NS",
+                "close_price": 1134.4,
+                "ema20": 1148.56,
+                "ema50": 1139.98,
+                "ema200": 1057.36,
+                "atr": 30.7,
+                "rsi": 43.97,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 12.92
+            },
+            {
+                "symbol": "ETERNAL.NS",
+                "close_price": 323.0,
+                "ema20": 325.06,
+                "ema50": 317.99,
+                "ema200": 290.88,
+                "atr": 9.06,
+                "rsi": 40.14,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 12.76
+            },
+            {
+                "symbol": "SHRIRAMFIN.NS",
+                "close_price": 929.4,
+                "ema20": 977.66,
+                "ema50": 1012.54,
+                "ema200": 969.8,
+                "atr": 25.26,
+                "rsi": 31.42,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 10.81
+            },
+            {
+                "symbol": "SIEMENS.NS",
+                "close_price": 3654.0,
+                "ema20": 3780.71,
+                "ema50": 3815.55,
+                "ema200": 3606.87,
+                "atr": 109.08,
+                "rsi": 38.0,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 10.31
+            },
+            {
+                "symbol": "TVSMOTOR.NS",
+                "close_price": 3940.3,
+                "ema20": 4038.11,
+                "ema50": 4064.73,
+                "ema200": 3775.08,
+                "atr": 106.48,
+                "rsi": 32.08,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 8.59
+            },
+            {
+                "symbol": "BAJAJ-AUTO.NS",
+                "close_price": 10034.0,
+                "ema20": 10637.14,
+                "ema50": 10990.73,
+                "ema200": 10319.18,
+                "atr": 278.43,
+                "rsi": 22.21,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 7.01
+            },
+            {
+                "symbol": "LODHA.NS",
+                "close_price": 1069.7,
+                "ema20": 1122.68,
+                "ema50": 1140.76,
+                "ema200": 1087.36,
+                "atr": 34.23,
+                "rsi": 36.76,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 5.54
+            }
+        ],
+        "portfolio_summary": {
+            "cash": 100000.0,
+            "positions": 1,
+            "portfolio_value": 144000.0,
+            "market_value": 44000.0,
+            "unrealized_pnl": -4000.0,
+            "cash_percent": 69.44444444444444,
+            "invested_percent": 30.555555555555557,
+            "largest_position": {
+                "symbol": "TITAN.NS",
+                "market_value": 44000.0
+            },
+            "largest_gain": 0.0,
+            "largest_loss": -4000.0
+        },
+        "review_date": "2026-10-13 00:10",
+        "changes": {
+            "new_buy": [],
+            "removed_buy": [],
+            "new_watchlist": [],
+            "removed_watchlist": [],
+            "readiness_changes": [],
+            "holding_changes": []
+        },
+        "summary": {
+            "market": "Bearish",
+            "portfolio": {
+                "net_worth": 144000.0,
+                "cash": 100000.0,
+                "invested": 44000.0,
+                "positions": 1,
+                "unrealized_pnl": -4000.0
+            },
+            "holdings": {
+                "healthy": 0,
+                "weakening": 0,
+                "exit": 0
+            },
+            "review": {
+                "new_buy": 0,
+                "new_watchlist": 0,
+                "removed_watchlist": 0,
+                "major_upgrades": 0,
+                "major_downgrades": 0
+            },
+            "best_opportunity": {
+                "symbol": "ADANIPORTS.NS",
+                "priority": "D",
+                "readiness": 45
+            }
+        },
+        "alerts": [
+            {
+                "type": "HOLD",
+                "message": "New HOLD signal for TITAN.NS"
+            }
+        ]
+    },
+    {
+        "market_regime": "Bearish",
+        "buy": [],
+        "hold": [
+            {
+                "symbol": "TITAN.NS",
+                "close_price": 4400.0,
+                "ema20": 4654.45,
+                "ema50": 4757.71,
+                "ema200": 4436.42,
+                "atr": 104.11,
+                "rsi": 24.03,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "HOLD",
+                    "reason": "No new entry signal, but no explicit exit condition is present"
+                },
+                "relative_strength": 9.81,
+                "holding_health": "Exit Candidate",
+                "days_held": 64,
+                "profit_pct": -8.333333333333332,
+                "profit_amount": -4000.0,
+                "market_value": 44000.0,
+                "drawdown_from_peak": 14.88044571693879,
+                "highest_price": 5169.2,
+                "current_stop": 4960.98,
+                "comment": "Near trailing stop."
+            }
+        ],
+        "exit": [],
+        "watchlist": [
+            {
+                "symbol": "ADANIPORTS.NS",
+                "close_price": 1754.0,
+                "ema20": 1756.97,
+                "ema50": 1745.62,
+                "ema200": 1651.73,
+                "atr": 47.57,
+                "rsi": 46.18,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": true,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, RSI below threshold, No proper consolidation",
+                "readiness_score": 45,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 15.01
+            },
+            {
+                "symbol": "SAIL.NS",
+                "close_price": 171.0,
+                "ema20": 176.25,
+                "ema50": 176.64,
+                "ema200": 166.19,
+                "atr": 7.4,
+                "rsi": 46.02,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": true,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, RSI below threshold, No proper consolidation",
+                "readiness_score": 45,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 14.78
+            },
+            {
+                "symbol": "KOTAKBANK.NS",
+                "close_price": 443.4,
+                "ema20": 422.54,
+                "ema50": 412.4,
+                "ema200": 402.05,
+                "atr": 10.63,
+                "rsi": 70.14,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": true,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, No proper consolidation",
+                "readiness_score": 40,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 12.16
+            },
+            {
+                "symbol": "DIVISLAB.NS",
+                "close_price": 9426.0,
+                "ema20": 9356.6,
+                "ema50": 8922.6,
+                "ema200": 7534.87,
+                "atr": 211.82,
+                "rsi": 50.51,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 50.9
+            },
+            {
+                "symbol": "AUROPHARMA.NS",
+                "close_price": 1706.9,
+                "ema20": 1683.7,
+                "ema50": 1652.26,
+                "ema200": 1477.38,
+                "atr": 35.66,
+                "rsi": 48.52,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 33.37
+            },
+            {
+                "symbol": "PNB.NS",
+                "close_price": 116.0,
+                "ema20": 114.87,
+                "ema50": 114.24,
+                "ema200": 111.39,
+                "atr": 3.04,
+                "rsi": 45.63,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 6.86
+            },
+            {
+                "symbol": "NESTLEIND.NS",
+                "close_price": 1324.7,
+                "ema20": 1350.46,
+                "ema50": 1389.73,
+                "ema200": 1360.72,
+                "atr": 27.79,
+                "rsi": 37.78,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 5.11
+            },
+            {
+                "symbol": "CUMMINSIND.NS",
+                "close_price": 4835.0,
+                "ema20": 4915.49,
+                "ema50": 5074.52,
+                "ema200": 4937.43,
+                "atr": 113.43,
+                "rsi": 36.95,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 4.76
+            },
+            {
+                "symbol": "MOTHERSON.NS",
+                "close_price": 156.99,
+                "ema20": 159.45,
+                "ema50": 158.8,
+                "ema200": 140.69,
+                "atr": 4.61,
+                "rsi": 42.95,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 31.18
+            },
+            {
+                "symbol": "TORNTPHARM.NS",
+                "close_price": 4682.0,
+                "ema20": 4806.19,
+                "ema50": 4842.52,
+                "ema200": 4486.79,
+                "atr": 104.21,
+                "rsi": 29.35,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 15.7
+            }
+        ],
+        "full_watchlist": [
+            {
+                "symbol": "ADANIPORTS.NS",
+                "close_price": 1754.0,
+                "ema20": 1756.97,
+                "ema50": 1745.62,
+                "ema200": 1651.73,
+                "atr": 47.57,
+                "rsi": 46.18,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": true,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, RSI below threshold, No proper consolidation",
+                "readiness_score": 45,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 15.01
+            },
+            {
+                "symbol": "SAIL.NS",
+                "close_price": 171.0,
+                "ema20": 176.25,
+                "ema50": 176.64,
+                "ema200": 166.19,
+                "atr": 7.4,
+                "rsi": 46.02,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": true,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, RSI below threshold, No proper consolidation",
+                "readiness_score": 45,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 14.78
+            },
+            {
+                "symbol": "KOTAKBANK.NS",
+                "close_price": 443.4,
+                "ema20": 422.54,
+                "ema50": 412.4,
+                "ema200": 402.05,
+                "atr": 10.63,
+                "rsi": 70.14,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": true,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, No proper consolidation",
+                "readiness_score": 40,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 12.16
+            },
+            {
+                "symbol": "DIVISLAB.NS",
+                "close_price": 9426.0,
+                "ema20": 9356.6,
+                "ema50": 8922.6,
+                "ema200": 7534.87,
+                "atr": 211.82,
+                "rsi": 50.51,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 50.9
+            },
+            {
+                "symbol": "AUROPHARMA.NS",
+                "close_price": 1706.9,
+                "ema20": 1683.7,
+                "ema50": 1652.26,
+                "ema200": 1477.38,
+                "atr": 35.66,
+                "rsi": 48.52,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 33.37
+            },
+            {
+                "symbol": "PNB.NS",
+                "close_price": 116.0,
+                "ema20": 114.87,
+                "ema50": 114.24,
+                "ema200": 111.39,
+                "atr": 3.04,
+                "rsi": 45.63,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 6.86
+            },
+            {
+                "symbol": "NESTLEIND.NS",
+                "close_price": 1324.7,
+                "ema20": 1350.46,
+                "ema50": 1389.73,
+                "ema200": 1360.72,
+                "atr": 27.79,
+                "rsi": 37.78,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 5.11
+            },
+            {
+                "symbol": "CUMMINSIND.NS",
+                "close_price": 4835.0,
+                "ema20": 4915.49,
+                "ema50": 5074.52,
+                "ema200": 4937.43,
+                "atr": 113.43,
+                "rsi": 36.95,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 4.76
+            },
+            {
+                "symbol": "MOTHERSON.NS",
+                "close_price": 156.99,
+                "ema20": 159.45,
+                "ema50": 158.8,
+                "ema200": 140.69,
+                "atr": 4.61,
+                "rsi": 42.95,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 31.18
+            },
+            {
+                "symbol": "TORNTPHARM.NS",
+                "close_price": 4682.0,
+                "ema20": 4806.19,
+                "ema50": 4842.52,
+                "ema200": 4486.79,
+                "atr": 104.21,
+                "rsi": 29.35,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 15.7
+            },
+            {
+                "symbol": "BOSCHLTD.NS",
+                "close_price": 44585.0,
+                "ema20": 45879.47,
+                "ema50": 45598.34,
+                "ema200": 40799.63,
+                "atr": 1186.79,
+                "rsi": 36.66,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 14.81
+            },
+            {
+                "symbol": "ABB.NS",
+                "close_price": 6855.5,
+                "ema20": 7011.95,
+                "ema50": 7144.74,
+                "ema200": 6698.93,
+                "atr": 200.14,
+                "rsi": 36.5,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 14.04
+            },
+            {
+                "symbol": "ZYDUSLIFE.NS",
+                "close_price": 1134.4,
+                "ema20": 1148.56,
+                "ema50": 1139.98,
+                "ema200": 1057.36,
+                "atr": 30.7,
+                "rsi": 43.97,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 12.92
+            },
+            {
+                "symbol": "ETERNAL.NS",
+                "close_price": 323.0,
+                "ema20": 325.06,
+                "ema50": 317.99,
+                "ema200": 290.88,
+                "atr": 9.06,
+                "rsi": 40.14,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 12.76
+            },
+            {
+                "symbol": "SHRIRAMFIN.NS",
+                "close_price": 929.4,
+                "ema20": 977.66,
+                "ema50": 1012.54,
+                "ema200": 969.8,
+                "atr": 25.26,
+                "rsi": 31.42,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 10.81
+            },
+            {
+                "symbol": "SIEMENS.NS",
+                "close_price": 3654.0,
+                "ema20": 3780.71,
+                "ema50": 3815.55,
+                "ema200": 3606.87,
+                "atr": 109.08,
+                "rsi": 38.0,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 10.31
+            },
+            {
+                "symbol": "TVSMOTOR.NS",
+                "close_price": 3940.3,
+                "ema20": 4038.11,
+                "ema50": 4064.73,
+                "ema200": 3775.08,
+                "atr": 106.48,
+                "rsi": 32.08,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 8.59
+            },
+            {
+                "symbol": "BAJAJ-AUTO.NS",
+                "close_price": 10034.0,
+                "ema20": 10637.14,
+                "ema50": 10990.73,
+                "ema200": 10319.18,
+                "atr": 278.43,
+                "rsi": 22.21,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 7.01
+            },
+            {
+                "symbol": "LODHA.NS",
+                "close_price": 1069.7,
+                "ema20": 1122.68,
+                "ema50": 1140.76,
+                "ema200": 1087.36,
+                "atr": 34.23,
+                "rsi": 36.76,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 5.54
+            }
+        ],
+        "portfolio_summary": {
+            "cash": 100000.0,
+            "positions": 1,
+            "portfolio_value": 144000.0,
+            "market_value": 44000.0,
+            "unrealized_pnl": -4000.0,
+            "cash_percent": 69.44444444444444,
+            "invested_percent": 30.555555555555557,
+            "largest_position": {
+                "symbol": "TITAN.NS",
+                "market_value": 44000.0
+            },
+            "largest_gain": 0.0,
+            "largest_loss": -4000.0
+        },
+        "review_date": "2026-10-13 00:25",
+        "changes": {
+            "new_buy": [],
+            "removed_buy": [],
+            "new_watchlist": [],
+            "removed_watchlist": [],
+            "readiness_changes": [],
+            "holding_changes": []
+        },
+        "summary": {
+            "market": "Bearish",
+            "portfolio": {
+                "net_worth": 144000.0,
+                "cash": 100000.0,
+                "invested": 44000.0,
+                "positions": 1,
+                "unrealized_pnl": -4000.0
+            },
+            "holdings": {
+                "healthy": 0,
+                "weakening": 0,
+                "exit": 0
+            },
+            "review": {
+                "new_buy": 0,
+                "new_watchlist": 0,
+                "removed_watchlist": 0,
+                "major_upgrades": 0,
+                "major_downgrades": 0
+            },
+            "best_opportunity": {
+                "symbol": "ADANIPORTS.NS",
+                "priority": "D",
+                "readiness": 45
+            }
+        },
+        "alerts": [
+            {
+                "type": "HOLD",
+                "message": "New HOLD signal for TITAN.NS"
+            }
+        ]
+    },
+    {
+        "market_regime": "Bearish",
+        "buy": [],
+        "hold": [
+            {
+                "symbol": "TITAN.NS",
+                "close_price": 4400.0,
+                "ema20": 4654.45,
+                "ema50": 4757.71,
+                "ema200": 4436.42,
+                "atr": 104.11,
+                "rsi": 24.03,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "HOLD",
+                    "reason": "No new entry signal, but no explicit exit condition is present"
+                },
+                "relative_strength": 9.81,
+                "holding_health": "Exit Candidate",
+                "days_held": 64,
+                "profit_pct": -8.333333333333332,
+                "profit_amount": -4000.0,
+                "market_value": 44000.0,
+                "drawdown_from_peak": 14.88044571693879,
+                "highest_price": 5169.2,
+                "current_stop": 4960.98,
+                "comment": "Near trailing stop."
+            }
+        ],
+        "exit": [],
+        "watchlist": [
+            {
+                "symbol": "ADANIPORTS.NS",
+                "close_price": 1754.0,
+                "ema20": 1756.97,
+                "ema50": 1745.62,
+                "ema200": 1651.73,
+                "atr": 47.57,
+                "rsi": 46.18,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": true,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, RSI below threshold, No proper consolidation",
+                "readiness_score": 45,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 15.01
+            },
+            {
+                "symbol": "SAIL.NS",
+                "close_price": 171.0,
+                "ema20": 176.25,
+                "ema50": 176.64,
+                "ema200": 166.19,
+                "atr": 7.4,
+                "rsi": 46.02,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": true,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, RSI below threshold, No proper consolidation",
+                "readiness_score": 45,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 14.78
+            },
+            {
+                "symbol": "KOTAKBANK.NS",
+                "close_price": 443.4,
+                "ema20": 422.54,
+                "ema50": 412.4,
+                "ema200": 402.05,
+                "atr": 10.63,
+                "rsi": 70.14,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": true,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, No proper consolidation",
+                "readiness_score": 40,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 12.16
+            },
+            {
+                "symbol": "DIVISLAB.NS",
+                "close_price": 9426.0,
+                "ema20": 9356.6,
+                "ema50": 8922.6,
+                "ema200": 7534.87,
+                "atr": 211.82,
+                "rsi": 50.51,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 50.9
+            },
+            {
+                "symbol": "AUROPHARMA.NS",
+                "close_price": 1706.9,
+                "ema20": 1683.7,
+                "ema50": 1652.26,
+                "ema200": 1477.38,
+                "atr": 35.66,
+                "rsi": 48.52,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 33.37
+            },
+            {
+                "symbol": "PNB.NS",
+                "close_price": 116.0,
+                "ema20": 114.87,
+                "ema50": 114.24,
+                "ema200": 111.39,
+                "atr": 3.04,
+                "rsi": 45.63,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 6.86
+            },
+            {
+                "symbol": "NESTLEIND.NS",
+                "close_price": 1324.7,
+                "ema20": 1350.46,
+                "ema50": 1389.73,
+                "ema200": 1360.72,
+                "atr": 27.79,
+                "rsi": 37.78,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 5.11
+            },
+            {
+                "symbol": "CUMMINSIND.NS",
+                "close_price": 4835.0,
+                "ema20": 4915.49,
+                "ema50": 5074.52,
+                "ema200": 4937.43,
+                "atr": 113.43,
+                "rsi": 36.95,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 4.76
+            },
+            {
+                "symbol": "MOTHERSON.NS",
+                "close_price": 156.99,
+                "ema20": 159.45,
+                "ema50": 158.8,
+                "ema200": 140.69,
+                "atr": 4.61,
+                "rsi": 42.95,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 31.18
+            },
+            {
+                "symbol": "TORNTPHARM.NS",
+                "close_price": 4682.0,
+                "ema20": 4806.19,
+                "ema50": 4842.52,
+                "ema200": 4486.79,
+                "atr": 104.21,
+                "rsi": 29.35,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 15.7
+            }
+        ],
+        "full_watchlist": [
+            {
+                "symbol": "ADANIPORTS.NS",
+                "close_price": 1754.0,
+                "ema20": 1756.97,
+                "ema50": 1745.62,
+                "ema200": 1651.73,
+                "atr": 47.57,
+                "rsi": 46.18,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": true,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, RSI below threshold, No proper consolidation",
+                "readiness_score": 45,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 15.01
+            },
+            {
+                "symbol": "SAIL.NS",
+                "close_price": 171.0,
+                "ema20": 176.25,
+                "ema50": 176.64,
+                "ema200": 166.19,
+                "atr": 7.4,
+                "rsi": 46.02,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": true,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, RSI below threshold, No proper consolidation",
+                "readiness_score": 45,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 14.78
+            },
+            {
+                "symbol": "KOTAKBANK.NS",
+                "close_price": 443.4,
+                "ema20": 422.54,
+                "ema50": 412.4,
+                "ema200": 402.05,
+                "atr": 10.63,
+                "rsi": 70.14,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": true,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, No proper consolidation",
+                "readiness_score": 40,
+                "priority": "D",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 12.16
+            },
+            {
+                "symbol": "DIVISLAB.NS",
+                "close_price": 9426.0,
+                "ema20": 9356.6,
+                "ema50": 8922.6,
+                "ema200": 7534.87,
+                "atr": 211.82,
+                "rsi": 50.51,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 50.9
+            },
+            {
+                "symbol": "AUROPHARMA.NS",
+                "close_price": 1706.9,
+                "ema20": 1683.7,
+                "ema50": 1652.26,
+                "ema200": 1477.38,
+                "atr": 35.66,
+                "rsi": 48.52,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 33.37
+            },
+            {
+                "symbol": "PNB.NS",
+                "close_price": 116.0,
+                "ema20": 114.87,
+                "ema50": 114.24,
+                "ema200": 111.39,
+                "atr": 3.04,
+                "rsi": 45.63,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 6.86
+            },
+            {
+                "symbol": "NESTLEIND.NS",
+                "close_price": 1324.7,
+                "ema20": 1350.46,
+                "ema50": 1389.73,
+                "ema200": 1360.72,
+                "atr": 27.79,
+                "rsi": 37.78,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 5.11
+            },
+            {
+                "symbol": "CUMMINSIND.NS",
+                "close_price": 4835.0,
+                "ema20": 4915.49,
+                "ema50": 5074.52,
+                "ema200": 4937.43,
+                "atr": 113.43,
+                "rsi": 36.95,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": true
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold",
+                "readiness_score": 35,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 4.76
+            },
+            {
+                "symbol": "MOTHERSON.NS",
+                "close_price": 156.99,
+                "ema20": 159.45,
+                "ema50": 158.8,
+                "ema200": 140.69,
+                "atr": 4.61,
+                "rsi": 42.95,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 31.18
+            },
+            {
+                "symbol": "TORNTPHARM.NS",
+                "close_price": 4682.0,
+                "ema20": 4806.19,
+                "ema50": 4842.52,
+                "ema200": 4486.79,
+                "atr": 104.21,
+                "rsi": 29.35,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 15.7
+            },
+            {
+                "symbol": "BOSCHLTD.NS",
+                "close_price": 44585.0,
+                "ema20": 45879.47,
+                "ema50": 45598.34,
+                "ema200": 40799.63,
+                "atr": 1186.79,
+                "rsi": 36.66,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 14.81
+            },
+            {
+                "symbol": "ABB.NS",
+                "close_price": 6855.5,
+                "ema20": 7011.95,
+                "ema50": 7144.74,
+                "ema200": 6698.93,
+                "atr": 200.14,
+                "rsi": 36.5,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 14.04
+            },
+            {
+                "symbol": "ZYDUSLIFE.NS",
+                "close_price": 1134.4,
+                "ema20": 1148.56,
+                "ema50": 1139.98,
+                "ema200": 1057.36,
+                "atr": 30.7,
+                "rsi": 43.97,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 12.92
+            },
+            {
+                "symbol": "ETERNAL.NS",
+                "close_price": 323.0,
+                "ema20": 325.06,
+                "ema50": 317.99,
+                "ema200": 290.88,
+                "atr": 9.06,
+                "rsi": 40.14,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 12.76
+            },
+            {
+                "symbol": "SHRIRAMFIN.NS",
+                "close_price": 929.4,
+                "ema20": 977.66,
+                "ema50": 1012.54,
+                "ema200": 969.8,
+                "atr": 25.26,
+                "rsi": 31.42,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 10.81
+            },
+            {
+                "symbol": "SIEMENS.NS",
+                "close_price": 3654.0,
+                "ema20": 3780.71,
+                "ema50": 3815.55,
+                "ema200": 3606.87,
+                "atr": 109.08,
+                "rsi": 38.0,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 10.31
+            },
+            {
+                "symbol": "TVSMOTOR.NS",
+                "close_price": 3940.3,
+                "ema20": 4038.11,
+                "ema50": 4064.73,
+                "ema200": 3775.08,
+                "atr": 106.48,
+                "rsi": 32.08,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 8.59
+            },
+            {
+                "symbol": "BAJAJ-AUTO.NS",
+                "close_price": 10034.0,
+                "ema20": 10637.14,
+                "ema50": 10990.73,
+                "ema200": 10319.18,
+                "atr": 278.43,
+                "rsi": 22.21,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 7.01
+            },
+            {
+                "symbol": "LODHA.NS",
+                "close_price": 1069.7,
+                "ema20": 1122.68,
+                "ema50": 1140.76,
+                "ema200": 1087.36,
+                "atr": 34.23,
+                "rsi": 36.76,
+                "signal": {
+                    "signal": "NO SIGNAL",
+                    "reason": "Conditions not met",
+                    "diagnostics": {
+                        "breakout": false,
+                        "volume_confirmation": false,
+                        "rsi_confirmation": false,
+                        "trend_confirmation": true,
+                        "consolidation": false
+                    }
+                },
+                "explanation": "Waiting for breakout, Volume below confirmation level, RSI below threshold, No proper consolidation",
+                "readiness_score": 25,
+                "priority": "IGNORE",
+                "risk_rating": "MEDIUM",
+                "ai_analysis": null,
+                "decision": {
+                    "action": "WATCHLIST",
+                    "reason": "No valid entry"
+                },
+                "relative_strength": 5.54
+            }
+        ],
+        "portfolio_summary": {
+            "cash": 100000.0,
+            "positions": 1,
+            "portfolio_value": 144000.0,
+            "market_value": 44000.0,
+            "unrealized_pnl": -4000.0,
+            "cash_percent": 69.44444444444444,
+            "invested_percent": 30.555555555555557,
+            "largest_position": {
+                "symbol": "TITAN.NS",
+                "market_value": 44000.0
+            },
+            "largest_gain": 0.0,
+            "largest_loss": -4000.0
+        },
+        "review_date": "2026-10-13 21:55",
+        "changes": {
+            "new_buy": [],
+            "removed_buy": [],
+            "new_watchlist": [],
+            "removed_watchlist": [],
+            "readiness_changes": [],
+            "holding_changes": []
+        },
+        "summary": {
+            "market": "Bearish",
+            "portfolio": {
+                "net_worth": 144000.0,
+                "cash": 100000.0,
+                "invested": 44000.0,
+                "positions": 1,
+                "unrealized_pnl": -4000.0
+            },
+            "holdings": {
+                "healthy": 0,
+                "weakening": 0,
+                "exit": 0
+            },
+            "review": {
+                "new_buy": 0,
+                "new_watchlist": 0,
+                "removed_watchlist": 0,
+                "major_upgrades": 0,
+                "major_downgrades": 0
+            },
+            "best_opportunity": {
+                "symbol": "ADANIPORTS.NS",
+                "priority": "D",
+                "readiness": 45
+            }
+        },
+        "alerts": [
+            {
+                "type": "HOLD",
+                "message": "New HOLD signal for TITAN.NS"
+            }
+        ]
     }
 ]
