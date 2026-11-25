@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.core.api_response import error_response, success_response
+from app.core.api_response import exception_response, success_response
 from app.services.telegram_service import TelegramService
 from app.services.trading_service import TradingService
 from app.utils.alert_formatter import format_trade_alert
@@ -29,4 +29,4 @@ def send_alert(symbol: str):
             "telegram_response": telegram_response,
         })
     except Exception as exc:  # pragma: no cover - API error handling
-        return error_response("Failed to send alert", str(exc), 500)
+        return exception_response("Failed to send alert", exc)

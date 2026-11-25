@@ -1,14 +1,15 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 from typing import Any, Dict, List
+
+from runtime_paths import DATA_DIR, TRADES_FILE
 
 
 class StatisticsService:
 
-    DATA_DIR = Path(__file__).resolve().parents[2] / "data"
-    TRADES_FILE = DATA_DIR / "trades.json"
+    DATA_DIR = DATA_DIR
+    TRADES_FILE = TRADES_FILE
 
     @staticmethod
     def load() -> List[Dict[str, Any]]:

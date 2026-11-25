@@ -3,12 +3,15 @@ import shutil
 from pathlib import Path
 from typing import Any
 
-PROJECT_ROOT = Path(__file__).resolve().parent
-DATA_DIR = PROJECT_ROOT / "data"
+from app.core.environment import PROJECT_ROOT, settings
+
+DATA_DIR = settings.data_dir
 PORTFOLIO_FILE = DATA_DIR / "portfolio.json"
 REVIEW_HISTORY_FILE = DATA_DIR / "review_history.json"
 STOCK_LIFECYCLE_FILE = DATA_DIR / "stock_lifecycle.json"
 SETTINGS_FILE = DATA_DIR / "settings.json"
+TRADES_FILE = DATA_DIR / "trades.json"
+TRADE_HISTORY_FILE = DATA_DIR / "trade_history.json"
 
 DEFAULT_PORTFOLIO = {"cash": 100000, "positions": []}
 DEFAULT_SETTINGS: dict[str, Any] = {
@@ -39,6 +42,9 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "relative_strength_3m_weight": 0.3,
     "relative_strength_6m_weight": 0.3,
     "relative_strength_12m_weight": 0.4,
+    "backtest_brokerage_pct": 0.03,
+    "backtest_transaction_cost_pct": 0.10,
+    "backtest_slippage_bps": 5.0,
     "priority": {"A": 90, "B": 75, "C": 60, "D": 40},
 }
 
@@ -88,6 +94,8 @@ __all__ = [
     "REVIEW_HISTORY_FILE",
     "STOCK_LIFECYCLE_FILE",
     "SETTINGS_FILE",
+    "TRADES_FILE",
+    "TRADE_HISTORY_FILE",
     "DEFAULT_PORTFOLIO",
     "DEFAULT_SETTINGS",
     "ensure_runtime_data_files",

@@ -1,5 +1,7 @@
 # Environment
 .env
+.env.*
+!.env.example
 .venv/
 venv/
 
@@ -23,10 +25,15 @@ Thumbs.db
 *.db
 *.sqlite
 *.sqlite3
+backend/data/scheduler.lock
 
 # Runtime trading data snapshots
 data/stock_lifecycle.json
 data/review_history.json
+backend/data/*.json
+backend/data/backtest_logs/
+backend/portfolio.json
+backend/review_history.json
 
 # Temporary files
 *.tmp

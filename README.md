@@ -53,12 +53,46 @@ pip install -r requirements.txt
 
 ```bash
 cd backend
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+copy .env.example .env   # Windows; optional
+python -m app.main
 ```
 
-## Running Scheduler
+The backend reads deployment settings from `backend/.env` or process environment
+variables. Do not put real credentials in `.env.example`. For multi-worker
+deployments, the scheduler uses a data-directory process lock so only one worker
+runs scheduled jobs. The JSON-backed data directory must be on a filesystem that
+supports process locks.
 
-The scheduler is started automatically when the app boots through the FastAPI startup event. If needed, run the backend and allow the startup hook to initialize the background scan cycle.
+## Running from Windows CMD
+
+Open two Command Prompt windows from the repository root.
+
+Backend:
+
+```bat
+cd /d backend
+py -m venv .venv
+.venv\Scripts\activate.bat
+pip install -r requirements.txt
+if not exist .env copy .env.example .env
+python -m app.main
+```
+
+Frontend:
+
+```bat
+cd /d frontend
+npm ci
+npm run dev
+```
+
+## Running Backend Tests
+
+```bash
+cd backend
+pip install -r requirements-dev.txt
+python -m pytest
+```
 
 ## API Endpoints
 

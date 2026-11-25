@@ -1,7 +1,11 @@
+from contextlib import asynccontextmanager
 import logging
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.exceptions import RequestValidationError
+from starlette.exceptions import HTTPException as StarletteHTTPException
+import uvicorn
 
 from app.api.alerts import router as alert_router
 from app.api.backtest import router as backtest_router
@@ -17,21 +21,33 @@ from app.api.settings import router as settings_router
 from app.api.system import router as system_router
 from app.api.trading import router as trading_router
 from app.core.api_response import error_response, success_response
-from app.services.scheduler_service import start_scheduler
+from app.core.environment import settings
+from app.core.logger import LoggerService
+from app.services.scheduler_service import shutdown_scheduler, start_scheduler
 
-logging.getLogger("trading_agent").info("MAIN FILE LOADED")
-logging.getLogger("trading_agent").info("PORTFOLIO IMPORT SUCCESS")
+logging.basicConfig(level=getattr(logging, settings.log_level, logging.INFO))
 
-app = FastAPI(title="AI Trading Agent", version="1.0.0")
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    LoggerService.info_event("application_starting")
+    start_scheduler()
+    try:
+        yield
+    finally:
+        shutdown_scheduler()
+        LoggerService.info_event("application_stopped")
+
+
+app = FastAPI(
+    title=settings.app_title,
+    version=settings.app_version,
+    lifespan=lifespan,
+)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-    ],
+    allow_origins=list(settings.cors_origins),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -40,7 +56,8 @@ app.add_middleware(
 
 @app.exception_handler(FileNotFoundError)
 async def file_not_found_handler(_request: Request, exc: FileNotFoundError):
-    return error_response("File not found", str(exc), 404)
+    logging.getLogger("trading_agent").warning("Requested backend file was not found")
+    return error_response("File not found", "The requested resource was not found.", 404)
 
 
 @app.exception_handler(ValueError)
@@ -48,10 +65,25 @@ async def value_error_handler(_request: Request, exc: ValueError):
     return error_response("Invalid value", str(exc), 400)
 
 
+@app.exception_handler(StarletteHTTPException)
+async def http_exception_handler(_request: Request, exc: StarletteHTTPException):
+    message = exc.detail if isinstance(exc.detail, str) else "Request failed"
+    return error_response(message, exc.detail, exc.status_code)
+
+
+@app.exception_handler(RequestValidationError)
+async def request_validation_error_handler(_request: Request, exc: RequestValidationError):
+    details = [
+        {key: error[key] for key in ("loc", "msg", "type") if key in error}
+        for error in exc.errors()
+    ]
+    return error_response("Invalid request", details, 422)
+
+
 @app.exception_handler(Exception)
 async def unexpected_exception_handler(_request: Request, exc: Exception):
-    logging.getLogger("trading_agent").exception("Unhandled API exception: %s", exc)
-    return error_response("Unexpected error", str(exc), 500)
+    logging.getLogger("trading_agent").exception("Unhandled API exception")
+    return error_response("Unexpected error", "An unexpected server error occurred.", 500)
 
 
 @app.middleware("http")
@@ -66,12 +98,11 @@ async def log_requests(request: Request, call_next):
                 response.status_code,
             )
         return response
-    except Exception as exc:
+    except Exception:
         logging.getLogger("trading_agent").exception(
-            "API_REQUEST_FAILURE %s %s error=%s",
+            "API_REQUEST_FAILURE %s %s",
             request.method,
             request.url.path,
-            str(exc),
         )
         raise
 
@@ -96,11 +127,9 @@ def root():
 
 @app.get("/test-env")
 def test_env():
-    import os
-
     return success_response({
-        "bot_token_exists": bool(os.getenv("TELEGRAM_BOT_TOKEN")),
-        "chat_id": os.getenv("TELEGRAM_CHAT_ID"),
+        "bot_token_exists": bool(settings.telegram_bot_token),
+        "chat_id_exists": bool(settings.telegram_chat_id),
     })
 
 
@@ -109,10 +138,9 @@ def health_check():
     return success_response({"status": "healthy"})
 
 
-@app.on_event("startup")
-def startup_event():
-    start_scheduler()
-
-
 app.include_router(review_router, prefix="/api/v1/review", tags=["Review"])
 app.include_router(portfolio_router, prefix="/api/v1/portfolio", tags=["Portfolio"])
+
+
+if __name__ == "__main__":
+    uvicorn.run("app.main:app", host=settings.host, port=settings.port)

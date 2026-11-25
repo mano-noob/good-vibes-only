@@ -2,17 +2,16 @@ from __future__ import annotations
 
 import json
 from datetime import datetime
-from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from app.core.logger import LoggerService
+from runtime_paths import DATA_DIR, TRADES_FILE
 
 
 class TradeLifecycleService:
 
-    PROJECT_ROOT = Path(__file__).resolve().parents[2]
-    DATA_DIR = PROJECT_ROOT / "data"
-    DATA_FILE = DATA_DIR / "trades.json"
+    DATA_DIR = DATA_DIR
+    DATA_FILE = TRADES_FILE
 
     @staticmethod
     def load() -> List[Dict[str, Any]]:

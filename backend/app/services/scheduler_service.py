@@ -1,8 +1,15 @@
 from datetime import datetime
+import errno
+import logging
+import os
+import threading
+
 from apscheduler.schedulers.background import BackgroundScheduler
+from apscheduler.events import EVENT_JOB_ERROR, EVENT_JOB_MISSED
 
 from app.core.alert_state import LAST_SIGNALS
 from app.core.logger import LoggerService
+from app.core.environment import settings
 from app.services.review_service import ReviewService
 from app.services.scanner_service import ScannerService
 from app.services.telegram_service import TelegramService
@@ -10,6 +17,71 @@ from app.utils.alert_formatter import format_trade_alert
 
 
 scheduler = BackgroundScheduler()
+_scheduler_lock = threading.RLock()
+_scheduler_lock_handle = None
+
+
+def _acquire_process_lock() -> bool:
+    global _scheduler_lock_handle
+
+    settings.data_dir.mkdir(parents=True, exist_ok=True)
+    lock_handle = open(settings.data_dir / "scheduler.lock", "a+b")
+    lock_handle.seek(0, os.SEEK_END)
+    if lock_handle.tell() == 0:
+        lock_handle.write(b"0")
+        lock_handle.flush()
+    lock_handle.seek(0)
+
+    try:
+        if os.name == "nt":
+            import msvcrt
+
+            msvcrt.locking(lock_handle.fileno(), msvcrt.LK_NBLCK, 1)
+        else:
+            import fcntl
+
+            fcntl.flock(lock_handle.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError as exc:
+        lock_handle.close()
+        if exc.errno in {errno.EACCES, errno.EAGAIN, errno.EDEADLK, 13, 36}:
+            return False
+        raise
+
+    _scheduler_lock_handle = lock_handle
+    return True
+
+
+def _release_process_lock() -> None:
+    global _scheduler_lock_handle
+
+    if _scheduler_lock_handle is None:
+        return
+
+    if os.name == "nt":
+        import msvcrt
+
+        _scheduler_lock_handle.seek(0)
+        msvcrt.locking(_scheduler_lock_handle.fileno(), msvcrt.LK_UNLCK, 1)
+    else:
+        import fcntl
+
+        fcntl.flock(_scheduler_lock_handle.fileno(), fcntl.LOCK_UN)
+    _scheduler_lock_handle.close()
+    _scheduler_lock_handle = None
+
+
+def _log_scheduler_event(event) -> None:
+    if event.code == EVENT_JOB_ERROR:
+        LoggerService.error_event(
+            "scheduler_job_failed",
+            job_id=event.job_id,
+            exception_type=type(event.exception).__name__ if event.exception else "Unknown",
+        )
+    elif event.code == EVENT_JOB_MISSED:
+        LoggerService.warning_event("scheduler_job_missed", job_id=event.job_id)
+
+
+scheduler.add_listener(_log_scheduler_event, EVENT_JOB_ERROR | EVENT_JOB_MISSED)
 
 
 def is_market_open():
@@ -51,7 +123,11 @@ def run_market_scan():
 
     for result in results:
 
-        LoggerService.info_event("scanner_result", symbol=result.get("symbol"), payload=result)
+        LoggerService.info_event(
+            "scanner_result",
+            symbol=result.get("symbol"),
+            signal=(result.get("signal") or {}).get("signal"),
+        )
 
         if "signal" not in result:
             continue
@@ -96,19 +172,50 @@ def run_review_generation():
 
 
 def start_scheduler():
+    if not settings.scheduler_enabled:
+        LoggerService.info_event("scheduler_disabled")
+        return False
 
-    scheduler.add_job(
-        run_market_scan,
-        trigger="interval",
-        minutes=15
-    )
+    with _scheduler_lock:
+        if scheduler.running:
+            return True
 
-    scheduler.add_job(
-        run_review_generation,
-        trigger="interval",
-        minutes=15
-    )
+        if not _acquire_process_lock():
+            LoggerService.warning_event("scheduler_already_owned_by_another_process")
+            return False
 
-    scheduler.start()
+        try:
+            scheduler.add_job(
+                run_market_scan,
+                trigger="interval",
+                minutes=15,
+                id="market_scan",
+                replace_existing=True,
+                max_instances=1,
+            )
+            scheduler.add_job(
+                run_review_generation,
+                trigger="interval",
+                minutes=15,
+                id="review_generation",
+                replace_existing=True,
+                max_instances=1,
+            )
+            scheduler.start()
+        except Exception:
+            _release_process_lock()
+            logging.getLogger("trading_agent").exception("Scheduler startup failed")
+            raise
 
-    LoggerService.info_event("scheduler_started", timestamp=datetime.now().isoformat())
+        LoggerService.info_event("scheduler_started", timestamp=datetime.now().isoformat())
+        return True
+
+
+def shutdown_scheduler() -> None:
+    with _scheduler_lock:
+        try:
+            if scheduler.running:
+                scheduler.shutdown(wait=True)
+                LoggerService.info_event("scheduler_stopped")
+        finally:
+            _release_process_lock()

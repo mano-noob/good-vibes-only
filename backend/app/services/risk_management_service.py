@@ -139,14 +139,23 @@ class RiskManagementService:
             settings=settings_dict,
         )
 
-        normalized_position_size = max(0, int(position_size)) if stop_distance > 0 else 0
+        risk_limited_shares = max(0, int(position_size)) if stop_distance > 0 else 0
+        cash_limited_shares = (
+            max(0, int(cash_value // entry_value))
+            if cash_value > 0 and entry_value > 0
+            else 0
+        )
+        normalized_position_size = min(risk_limited_shares, cash_limited_shares)
         capital_required = normalized_position_size * entry_value if normalized_position_size else 0.0
         allocation_pct = ((capital_required / cash_value) * RiskManagementService.PERCENT_SCALE) if cash_value else 0.0
+        estimated_risk_amount = normalized_position_size * stop_distance
 
         return {
             "position_size": int(normalized_position_size),
             "capital_required": round(capital_required, 2),
             "risk_amount": round(risk_amount, 2),
+            "estimated_risk_amount": round(estimated_risk_amount, 2),
+            "risk_per_share": round(stop_distance, 2),
             "initial_stop": round(initial_stop, 2),
             "target_price": round(target_price, 2),
             "risk_reward": round(risk_reward, 2),

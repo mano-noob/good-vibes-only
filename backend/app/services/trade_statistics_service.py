@@ -1,13 +1,14 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
+
+from runtime_paths import DATA_DIR, TRADE_HISTORY_FILE
 
 
 class TradeStatisticsService:
 
-    DATA_DIR = Path(__file__).resolve().parents[2] / "data"
-    TRADE_HISTORY_FILE = DATA_DIR / "trade_history.json"
+    DATA_DIR = DATA_DIR
+    TRADE_HISTORY_FILE = TRADE_HISTORY_FILE
 
     @staticmethod
     def _safe_round(value, digits=2):

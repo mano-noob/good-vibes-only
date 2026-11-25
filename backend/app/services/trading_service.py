@@ -4,7 +4,6 @@ from app.core.config_service import ConfigService
 from app.services.market_data import MarketDataService
 from app.indicators.technical_indicators import TechnicalIndicators
 from app.strategies.breakout_strategy import BreakoutStrategy
-from app.services.ai_analysis_service import AIAnalysisService
 from app.services.risk_rating_service import RiskRatingService
 from app.core.logger import LoggerService
 
@@ -192,21 +191,7 @@ class TradingService:
             "signal": signal,
         })
 
-        if (
-            signal["signal"] == "BUY"
-            and signal.get("reason")
-        ):
-
-            ai_analysis = (
-                AIAnalysisService
-                .generate_trade_analysis(result)
-            )
-
-            result["ai_analysis"] = ai_analysis
-
-        else:
-
-            result["ai_analysis"] = None
+        result["ai_analysis"] = None
 
         LoggerService.timing(f"TradingService.analyze_stock {symbol}", start_time)
         return result

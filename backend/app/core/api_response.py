@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import logging
+import traceback
 from datetime import datetime, timezone
 from typing import Any
 
@@ -28,3 +30,16 @@ def error_response(message: str, details: Any = None, status_code: int = 500) ->
         "details": details,
     }
     return JSONResponse(status_code=status_code, content=payload)
+
+
+def exception_response(message: str, exc: Exception) -> JSONResponse:
+    frames = traceback.extract_tb(exc.__traceback__)
+    origin = frames[-1] if frames else None
+    logging.getLogger("trading_agent").error(
+        "%s failed (%s) at %s:%s",
+        message,
+        type(exc).__name__,
+        origin.filename.rsplit("/", 1)[-1].rsplit("\\", 1)[-1] if origin else "unknown",
+        origin.lineno if origin else 0,
+    )
+    return error_response(message, "An unexpected server error occurred.", 500)

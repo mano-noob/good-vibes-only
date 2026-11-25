@@ -1,0 +1,5 @@
+variant,status,trade_count,win_rate_pct,net_expectancy,profit_factor,net_return_pct,maximum_drawdown_pct,average_exposure_pct,maximum_exposure_pct,ending_equity,max_concurrent_positions
+baseline,completed,95,26.3158,-105.6307,0.6776,-10.0349,-12.872,37.9878,99.0614,89965.08,8
+breakout,completed,31,32.2581,-136.4058,0.7962,-4.2286,-7.6671,21.3725,94.0441,95771.42,7
+ema200,completed,42,28.5714,-214.867,0.6413,-9.0244,-9.7662,26.0569,89.0421,90975.59,6
+combined,completed,24,29.1667,-312.4128,0.6081,-7.4979,-8.2915,16.597,92.1011,92502.09,5

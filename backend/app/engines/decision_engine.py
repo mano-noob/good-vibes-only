@@ -13,12 +13,19 @@ class DecisionEngine:
         symbol: str,
         signal: str,
         owned: bool,
-        market_regime: str
+        market_regime: str,
+        exit_reason: str | None = None,
     ):
 
         LoggerService.info(f"DecisionEngine {symbol} signal={signal} regime={market_regime} owned={owned}")
 
         if owned:
+
+            if exit_reason:
+                return {
+                    "action": "EXIT",
+                    "reason": exit_reason,
+                }
 
             if signal == "BUY":
 

@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.core.api_response import error_response, success_response
+from app.core.api_response import exception_response, success_response
 from app.core.review_history import ReviewHistory
 from app.services.portfolio_analytics_service import PortfolioAnalyticsService
 from app.services.portfolio_service import PortfolioService
@@ -29,7 +29,7 @@ def health():
             "review_history": len(ReviewHistory.load()),
         })
     except Exception as exc:  # pragma: no cover - API error handling
-        return error_response("Health check failed", str(exc), 500)
+        return exception_response("Health check failed", exc)
 
 
 @router.get("/metrics")
@@ -58,4 +58,4 @@ def metrics():
             "history_count": len(ReviewHistory.load()),
         })
     except Exception as exc:  # pragma: no cover - API error handling
-        return error_response("Metrics load failed", str(exc), 500)
+        return exception_response("Metrics load failed", exc)

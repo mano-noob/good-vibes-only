@@ -2,11 +2,13 @@ import json
 import logging
 import threading
 from datetime import datetime
-from pathlib import Path
+from logging.handlers import RotatingFileHandler
+
+from app.core.environment import settings
 
 
 class LoggerService:
-    LOGS_DIR = Path(__file__).resolve().parents[2] / "logs"
+    LOGS_DIR = settings.log_dir
     _lock = threading.RLock()
     _logger = None
 
@@ -18,12 +20,16 @@ class LoggerService:
         cls.LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
         logger = logging.getLogger("trading_agent")
-        logger.setLevel(logging.INFO)
+        logger.setLevel(getattr(logging, settings.log_level, logging.INFO))
         logger.propagate = False
 
         if not logger.handlers:
-            today = datetime.now().strftime("%Y-%m-%d")
-            handler = logging.FileHandler(cls.LOGS_DIR / f"{today}.log", encoding="utf-8")
+            handler = RotatingFileHandler(
+                cls.LOGS_DIR / "backend.log",
+                maxBytes=10 * 1024 * 1024,
+                backupCount=5,
+                encoding="utf-8",
+            )
             handler.setFormatter(logging.Formatter("%(asctime)s %(levelname)s %(message)s"))
             logger.addHandler(handler)
 

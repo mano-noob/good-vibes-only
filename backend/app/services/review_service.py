@@ -34,20 +34,12 @@ from app.services.position_service import (
     PositionService
 )
 
-from app.services.trade_journal_service import (
-    TradeJournalService
-)
-
 from app.services.risk_management_service import (
     RiskManagementService
 )
 
 from app.services.review_summary_service import (
     ReviewSummaryService
-)
-
-from app.services.position_sizing_service import (
-    PositionSizingService
 )
 
 from app.services.alert_service import (
@@ -64,6 +56,62 @@ from app.core.logger import (
 
 
 class ReviewService:
+
+    @staticmethod
+    def _build_trade_plan_item(analysis):
+        decision = analysis.get("decision") or {}
+        action = decision.get("action", "WATCHLIST")
+        risk = analysis.get("risk") or {}
+        is_new_buy = action == "BUY"
+
+        entry_price = (
+            analysis.get("close_price")
+            if is_new_buy
+            else analysis.get("entry_price")
+        )
+        stop_loss = (
+            risk.get("initial_stop")
+            if is_new_buy
+            else analysis.get("current_stop")
+        )
+        target = (
+            risk.get("target_price")
+            if is_new_buy
+            else analysis.get("target_price")
+        )
+        quantity = (
+            risk.get("position_size", 0)
+            if is_new_buy
+            else analysis.get("quantity", 0)
+        )
+        capital_allocation = (
+            risk.get("capital_required", 0)
+            if is_new_buy
+            else analysis.get("market_value", 0)
+        )
+        estimated_risk = (
+            risk.get("estimated_risk_amount", 0)
+            if is_new_buy
+            else max(0.0, float(entry_price or 0) - float(stop_loss or 0))
+            * float(quantity or 0)
+        )
+
+        return {
+            "symbol": analysis.get("symbol"),
+            "decision": action,
+            "entry_price": entry_price,
+            "entry_condition": (
+                (analysis.get("signal") or {}).get("reason")
+                if action in {"BUY", "WATCHLIST"}
+                else None
+            ),
+            "quantity": quantity,
+            "stop_loss": stop_loss,
+            "target": target,
+            "proposed_capital_allocation": capital_allocation,
+            "estimated_risk_amount": estimated_risk,
+            "reason": decision.get("reason", ""),
+        }
 
     @staticmethod
     def get_latest_review():
@@ -137,17 +185,10 @@ class ReviewService:
 
         }
 
-        review_symbols = {
-
-            stock["symbol"]
-
-            for stock in top_stocks
-
-        }
-
-        review_symbols.update(
-            owned_symbols
-        )
+        review_symbols = list(dict.fromkeys(
+            [stock["symbol"] for stock in top_stocks]
+            + sorted(owned_symbols)
+        ))
 
         stage_start = time.perf_counter()
         review_stocks = [
@@ -170,6 +211,10 @@ class ReviewService:
         exit_list = []
 
         watchlist = []
+        trade_plan = []
+        remaining_cash = float(portfolio.get("cash", 0) or 0)
+        max_positions = max(0, int(ConfigService.get("max_positions", 8)))
+        remaining_position_slots = max(0, max_positions - len(owned_positions))
 
         analysis_by_symbol = {}
 
@@ -192,17 +237,52 @@ class ReviewService:
                 f"Stage TradingService.analyze_stock {symbol} completed in {(time.perf_counter() - analysis_start):.3f}s"
             )
 
-            owned = (
-                PortfolioService
-                .is_owned(symbol)
-            )
+            owned = symbol in owned_symbols
+
+            existing_position = None
+            holding_metrics = None
+            exit_reason = None
+            if owned:
+                existing_position = PositionService.normalize_position(
+                    PortfolioService.get_position(symbol)
+                )
+                holding_metrics = PositionService.calculate_position_metrics(
+                    existing_position,
+                    analysis,
+                )
+                holding_health = PositionService.calculate_position_health(
+                    existing_position,
+                    analysis,
+                    holding_metrics,
+                )
+                current_price = holding_metrics["current_price"]
+                ema200 = analysis.get("ema200")
+                current_stop = holding_metrics.get("current_stop")
+
+                if holding_health == "Exit Candidate":
+                    if ema200 is not None and current_price < float(ema200):
+                        exit_reason = "Price below EMA200"
+                    elif current_stop is not None and current_price < float(current_stop):
+                        exit_reason = "Price below current trailing stop"
+
+                analysis.update({
+                    "holding_health": holding_health,
+                    "entry_price": existing_position.get("entry_price"),
+                    "quantity": existing_position.get("quantity", 0),
+                    "target_price": existing_position.get("target_price"),
+                    "current_stop": current_stop,
+                    "market_value": holding_metrics["market_value"],
+                    "profit_amount": holding_metrics["profit_amount"],
+                    "profit_pct": holding_metrics["profit_pct"],
+                })
 
             decision = (
                 DecisionEngine.decide(
                     symbol=symbol,
                     signal=analysis["signal"]["signal"],
                     owned=owned,
-                    market_regime=regime
+                    market_regime=regime,
+                    exit_reason=exit_reason,
                 )
             )
 
@@ -218,20 +298,41 @@ class ReviewService:
 
                 LoggerService.info(f"BUY {symbol}")
 
-                analysis["risk"] = RiskManagementService.calculate_trade(
-                    entry_price=analysis.get("close_price"),
-                    atr=analysis.get("atr"),
-                    available_cash=float(portfolio.get("cash", 0) or 0),
-                    settings=ConfigService.all()
-                )
-                analysis["position_sizing"] = PositionSizingService.calculate(
-                    cash=float(portfolio.get("cash", 0) or 0),
-                    entry_price=float(analysis.get("close_price", 0) or 0),
-                    stop_price=float(analysis.get("close_price", 0) or 0) - float(analysis.get("atr", 0) or 0) * 2,
-                    risk_percent=ConfigService.get("risk_per_trade_pct", 1.0),
-                )
+                if remaining_position_slots <= 0:
+                    decision = {
+                        "action": "WATCHLIST",
+                        "reason": "Maximum open-position limit reached",
+                    }
+                    analysis["decision"] = decision
+                    watchlist.append(analysis)
+                else:
+                    analysis["risk"] = RiskManagementService.calculate_trade(
+                        entry_price=analysis.get("close_price"),
+                        atr=analysis.get("atr"),
+                        available_cash=remaining_cash,
+                        settings=ConfigService.all(),
+                    )
+                    risk = analysis["risk"]
+                    analysis["position_sizing"] = {
+                        "risk_capital": risk["risk_amount"],
+                        "risk_per_share": risk["risk_per_share"],
+                        "shares": risk["position_size"],
+                        "capital_required": risk["capital_required"],
+                        "capital_available": remaining_cash,
+                        "position_size_pct": risk["allocation_pct"],
+                    }
 
-                buy.append(analysis)
+                    if risk["position_size"] <= 0:
+                        decision = {
+                            "action": "WATCHLIST",
+                            "reason": "Available cash cannot fund one share within the configured risk limit",
+                        }
+                        analysis["decision"] = decision
+                        watchlist.append(analysis)
+                    else:
+                        remaining_cash -= risk["capital_required"]
+                        remaining_position_slots -= 1
+                        buy.append(analysis)
 
             elif decision["action"] == "HOLD":
 
@@ -245,48 +346,11 @@ class ReviewService:
 
                 exit_list.append(analysis)
 
-                position = PortfolioService.get_position(symbol)
-
-                if position is not None:
-
-                    position = PositionService.normalize_position(position)
-                    entry_price = float(position.get("entry_price", 0) or 0)
-                    exit_price = float(analysis.get("close_price", entry_price) or entry_price)
-                    quantity = float(position.get("quantity", 0) or 0)
-                    cost_basis = entry_price * quantity
-                    gross_profit = (exit_price - entry_price) * quantity
-                    return_pct = (gross_profit / cost_basis * 100) if cost_basis else 0.0
-                    highest_price = float(position.get("highest_price", entry_price) or entry_price)
-                    max_profit_pct = ((highest_price - entry_price) / entry_price * 100) if entry_price else 0.0
-                    max_drawdown_pct = PositionService.calculate_drawdown(position, exit_price)
-
-                    trade = {
-                        "trade_id": TradeJournalService.generate_trade_id(),
-                        "symbol": symbol,
-                        "entry_date": position.get("entry_date", ""),
-                        "exit_date": datetime.now().strftime("%Y-%m-%d"),
-                        "days_held": PositionService.calculate_days_held(position),
-                        "quantity": int(quantity),
-                        "entry_price": entry_price,
-                        "exit_price": exit_price,
-                        "gross_profit": round(gross_profit, 2),
-                        "return_pct": round(return_pct, 2),
-                        "market_regime": regime,
-                        "entry_priority": position.get("entry_priority") or analysis.get("priority") or "",
-                        "entry_readiness": position.get("entry_readiness") or analysis.get("readiness_score") or 0,
-                        "relative_strength": position.get("relative_strength") or analysis.get("relative_strength") or 0,
-                        "exit_reason": decision.get("reason") or analysis.get("explanation") or "",
-                        "max_profit_pct": round(max_profit_pct, 2),
-                        "max_drawdown_pct": round(max_drawdown_pct, 2),
-                    }
-
-                    TradeJournalService.append_trade(trade)
-                    LoggerService.info(f"Trade Recorded {symbol} {trade['trade_id']}")
-                    PortfolioService.remove_position(symbol)
-
             else:
 
                 watchlist.append(analysis)
+
+            trade_plan.append(ReviewService._build_trade_plan_item(analysis))
 
         LoggerService.info(
             f"Stage Decision engine + per-stock analysis completed in {(time.perf_counter() - stage_start):.3f}s"
@@ -336,17 +400,11 @@ class ReviewService:
 
             atr = current_analysis.get("atr")
 
-            if atr is not None:
-                position["current_stop"] = round(
-                    highest_price - (2 * float(atr)),
-                    2
-                )
-            elif position.get("current_stop") is not None:
-                position["current_stop"] = float(position.get("current_stop"))
-            elif position.get("initial_stop") is not None:
-                position["current_stop"] = float(position.get("initial_stop"))
-            else:
-                position["current_stop"] = entry_price
+            position["current_stop"] = PositionService.calculate_trailing_stop(
+                position,
+                current_price=current_price,
+                atr=atr,
+            )
 
         PortfolioService.save(portfolio)
         LoggerService.info("Portfolio Update")
@@ -429,14 +487,16 @@ class ReviewService:
                 )
             })
 
+        open_holdings = hold + exit_list
+
         market_value = sum(
             float(position.get("market_value", 0) or 0)
-            for position in hold
+            for position in open_holdings
         )
 
         unrealized_pnl = sum(
             float(position.get("profit_amount", 0) or 0)
-            for position in hold
+            for position in open_holdings
         )
 
         portfolio_value = float(portfolio.get("cash", 0) or 0) + market_value
@@ -455,9 +515,9 @@ class ReviewService:
 
         largest_position = None
 
-        if hold:
+        if open_holdings:
             largest_position = max(
-                hold,
+            open_holdings,
                 key=lambda x: float(x.get("market_value", 0) or 0)
             )
             largest_position = {
@@ -470,7 +530,7 @@ class ReviewService:
         largest_gain = max(
             [
                 float(position.get("profit_amount", 0) or 0)
-                for position in hold
+                for position in open_holdings
             ] + [0.0],
             default=0.0
         )
@@ -478,7 +538,7 @@ class ReviewService:
         largest_loss = min(
             [
                 float(position.get("profit_amount", 0) or 0)
-                for position in hold
+                for position in open_holdings
             ] + [0.0],
             default=0.0
         )
@@ -492,6 +552,8 @@ class ReviewService:
             "hold": hold,
 
             "exit": exit_list,
+
+            "trade_plan": trade_plan,
 
             "watchlist": watchlist[:10],
 

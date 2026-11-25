@@ -1,19 +1,17 @@
 """Telegram alert delivery support."""
 
-import os
-
 import requests
-from dotenv import load_dotenv
 
-load_dotenv()
+from app.core.environment import settings
 
 
 class TelegramService:
     """Send simple Telegram text messages when credentials are configured."""
 
-    BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-    CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
-    API_TIMEOUT_SECONDS = 10
+    BOT_TOKEN = settings.telegram_bot_token
+    CHAT_ID = settings.telegram_chat_id
+    API_BASE_URL = settings.telegram_api_base_url
+    API_TIMEOUT_SECONDS = settings.telegram_timeout_seconds
 
     @staticmethod
     def send_message(message: str) -> dict:
@@ -21,7 +19,7 @@ class TelegramService:
             return {"ok": False, "error": "Telegram credentials not configured"}
 
         url = (
-            f"https://api.telegram.org/bot"
+            f"{TelegramService.API_BASE_URL}/bot"
             f"{TelegramService.BOT_TOKEN}/sendMessage"
         )
         payload = {"chat_id": TelegramService.CHAT_ID, "text": message}
